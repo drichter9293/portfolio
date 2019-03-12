@@ -4,13 +4,27 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
+import React, { FunctionComponent } from 'react';
 
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from 'gatsby';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
-function SEO({ description, lang, meta, keywords, title }) {
+interface Props {
+  description?: string
+  lang?: string
+  meta?: any[]
+  keywords?: string[]
+  title: string
+}
+
+const SEO: FunctionComponent<Props> = ({
+  description,
+  lang,
+  meta,
+  keywords,
+  title,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -85,14 +99,6 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   keywords: [],
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO

@@ -4,10 +4,9 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 interface Props {
@@ -18,7 +17,7 @@ interface Props {
   title: string
 }
 
-const SEO: FunctionComponent<Props> = ({
+const SEO: React.FunctionComponent<Props> = ({
   description,
   lang,
   meta,

@@ -30,6 +30,9 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
     render={data => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
+        <a href="https://www.freepik.com/free-photos-vectors/background">
+          Background vector created by starline - www.freepik.com
+        </a>
         <div
           style={{
             margin: `0 auto`,

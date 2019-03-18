@@ -1,0 +1,96 @@
+{
+  "companies": [
+    {
+      "name": "athenahealth",
+      "logo": "../../images/athenahealth.png",
+      "positions": [
+        {
+          "title": "Senior Software Engineer",
+          "projects": [
+            {
+              "name": "Virence Migration",
+              "description": "Lead project to migrate the frontend codebase of an aquisition to React and our internal design system",
+              "details": [
+                "Introduced around a dozen AngularJS developers to React"
+              ]
+            },
+            {
+              "name": "Nursing Flowsheets",
+              "description": "Created a workflow for nurses to document patient assessments"
+            }
+          ]
+        },
+        {
+          "title": "Software Engineer",
+          "projects": [
+            {
+              "name": "Messing Operations",
+              "description": "Maintained message queuing system for sending calls, emails, and texts to patients",
+              "details": [
+                "Created Grafana dashboards to monitor throughput, analyze bottlenecks, and report metrics",
+                "Collaborated with a remote team to migrate messaging infrastructure to a new service provider"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TradeStation",
+      "logo": "../../images/tradestation.png",
+      "positions": [
+        {
+          "title": "Intern",
+          "projects": [
+            {
+              "name": "IdeaLab",
+              "description": "Modeled customer life cycles to recognize valuable clients",
+              "details": [
+                "Segmented the customer base through statistical analysis and machine learning using R"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ultimate Software",
+      "logo": "../../images/ultimate-software.png",
+      "positions": [
+        {
+          "title": "Intern",
+          "projects": [
+            {
+              "name": "VTeam",
+              "description": "Designed and implemented a .NET application to view project dependencies using C#",
+              "details": [
+                "Computed module integration complexity using design predicates and reflection"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "display": false,
+      "name": "Braunschweig Lab",
+      "positions": [
+        {
+          "title": "Research Assistant",
+          "projects": [
+            {
+              "name": "Synthetic Lectins and Host-Guest Chemistry",
+              "description": "Studied the interactions between carbohydrates and synthetic lectins through variable temperature Nuclear Magnetic Resonance titrations",
+              "details": [
+                "Applied new mathematical models for ligand-host systems to quantitatively determine the association constants between carbohydrates and synthetic lectins using Microsoft Excel",
+                "Analyzed results using Microsoft Excel by applying new mathematical models for ligand-host systems to determine quantitatively the association constants between the carbohydrates and synthetic lectins",
+                "Modeled the motion of chemically propelled nanorods using Java and AWT Graphics",
+                "Illustrated chemistry and instrumentation using Autodesk 3ds Max"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

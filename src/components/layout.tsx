@@ -30,9 +30,6 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
     render={data => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <a href="https://www.freepik.com/free-photos-vectors/background">
-          Background vector created by starline - www.freepik.com
-        </a>
         <div
           style={{
             margin: `0 auto`,
@@ -42,11 +39,11 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
           }}
         >
           <main>{children}</main>
-          <footer>
+          {/* <footer>
             © {new Date().getFullYear()}, Built with
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          </footer> */}
         </div>
       </>
     )}

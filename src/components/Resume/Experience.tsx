@@ -19,10 +19,12 @@ const Experience: React.FunctionComponent = () => {
           }
           positions {
             title
-            projects {
-              name
-              description
-            }
+            startDate(formatString: "MMM YYYY")
+            endDate(formatString: "MMM YYYY")
+          }
+          projects {
+            name
+            description
           }
         }
       }

@@ -6,31 +6,30 @@
       "positions": [
         {
           "title": "Senior Software Engineer",
-          "projects": [
-            {
-              "name": "Virence Migration",
-              "description": "Lead project to migrate the frontend codebase of an aquisition to React and our internal design system",
-              "details": [
-                "Introduced around a dozen AngularJS developers to React"
-              ]
-            },
-            {
-              "name": "Nursing Flowsheets",
-              "description": "Created a workflow for nurses to document patient assessments"
-            }
-          ]
+          "startDate": "2018-02-01"
         },
         {
           "title": "Software Engineer",
-          "projects": [
-            {
-              "name": "Messing Operations",
-              "description": "Maintained message queuing system for sending calls, emails, and texts to patients",
-              "details": [
-                "Created Grafana dashboards to monitor throughput, analyze bottlenecks, and report metrics",
-                "Collaborated with a remote team to migrate messaging infrastructure to a new service provider"
-              ]
-            }
+          "startDate": "2015-09-01",
+          "endDate": "2018-02-01"
+        }
+      ],
+      "projects": [
+        {
+          "name": "Virence Migration",
+          "description": "Lead project to migrate the frontend codebase of an aquisition to React and our internal design system",
+          "details": ["Introduced around a dozen AngularJS developers to React"]
+        },
+        {
+          "name": "Nursing Flowsheets",
+          "description": "Created a workflow for nurses to document patient assessments"
+        },
+        {
+          "name": "Messing Operations",
+          "description": "Maintained message queuing system for sending calls, emails, and texts to patients",
+          "details": [
+            "Created Grafana dashboards to monitor throughput, analyze bottlenecks, and report metrics",
+            "Collaborated with a remote team to migrate messaging infrastructure to a new service provider"
           ]
         }
       ]
@@ -41,14 +40,16 @@
       "positions": [
         {
           "title": "Intern",
-          "projects": [
-            {
-              "name": "IdeaLab",
-              "description": "Modeled customer life cycles to recognize valuable clients",
-              "details": [
-                "Segmented the customer base through statistical analysis and machine learning using R"
-              ]
-            }
+          "startDate": "2015-06-01",
+          "endDate": "2015-08-01"
+        }
+      ],
+      "projects": [
+        {
+          "name": "IdeaLab",
+          "description": "Modeled customer life cycles to recognize valuable clients",
+          "details": [
+            "Segmented the customer base through statistical analysis and machine learning using R"
           ]
         }
       ]
@@ -59,14 +60,16 @@
       "positions": [
         {
           "title": "Intern",
-          "projects": [
-            {
-              "name": "VTeam",
-              "description": "Designed and implemented a .NET application to view project dependencies using C#",
-              "details": [
-                "Computed module integration complexity using design predicates and reflection"
-              ]
-            }
+          "startDate": "2014-05-01",
+          "endDate": "2014-08-01"
+        }
+      ],
+      "projects": [
+        {
+          "name": "VTeam",
+          "description": "Designed and implemented a .NET application to view project dependencies using C#",
+          "details": [
+            "Computed module integration complexity using design predicates and reflection"
           ]
         }
       ]
@@ -77,17 +80,19 @@
       "positions": [
         {
           "title": "Research Assistant",
-          "projects": [
-            {
-              "name": "Synthetic Lectins and Host-Guest Chemistry",
-              "description": "Studied the interactions between carbohydrates and synthetic lectins through variable temperature Nuclear Magnetic Resonance titrations",
-              "details": [
-                "Applied new mathematical models for ligand-host systems to quantitatively determine the association constants between carbohydrates and synthetic lectins using Microsoft Excel",
-                "Analyzed results using Microsoft Excel by applying new mathematical models for ligand-host systems to determine quantitatively the association constants between the carbohydrates and synthetic lectins",
-                "Modeled the motion of chemically propelled nanorods using Java and AWT Graphics",
-                "Illustrated chemistry and instrumentation using Autodesk 3ds Max"
-              ]
-            }
+          "startDate": "2013-02-01",
+          "endDate": "2014-02-01"
+        }
+      ],
+      "projects": [
+        {
+          "name": "Synthetic Lectins and Host-Guest Chemistry",
+          "description": "Studied the interactions between carbohydrates and synthetic lectins through variable temperature Nuclear Magnetic Resonance titrations",
+          "details": [
+            "Applied new mathematical models for ligand-host systems to quantitatively determine the association constants between carbohydrates and synthetic lectins using Microsoft Excel",
+            "Analyzed results using Microsoft Excel by applying new mathematical models for ligand-host systems to determine quantitatively the association constants between the carbohydrates and synthetic lectins",
+            "Modeled the motion of chemically propelled nanorods using Java and AWT Graphics",
+            "Illustrated chemistry and instrumentation using Autodesk 3ds Max"
           ]
         }
       ]

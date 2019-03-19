@@ -10,6 +10,7 @@ import './layout.css';
 
 import { graphql, StaticQuery } from 'gatsby';
 
+import Background from './Background';
 import Header from './header';
 
 interface Props {
@@ -29,6 +30,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
     `}
     render={data => (
       <>
+        <Background />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{

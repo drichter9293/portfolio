@@ -10,7 +10,7 @@ interface Props {
 const Header: React.FunctionComponent<Props> = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
+      //background: `rebeccapurple`,
       marginBottom: `1.45rem`,
     }}
   >

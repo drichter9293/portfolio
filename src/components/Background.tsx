@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 
+import { number } from 'prop-types';
+
 import { css } from '@emotion/core';
 
-const GENERATION_RATE = 0.1 // Number per frame
+const GENERATION_RATE = 5 // Number per frame
 
 const MIN_VELOCITY = 1
 const MAX_VELOCITY = 5
@@ -20,6 +22,15 @@ interface Comet {
   y: number
   velocity: number
   length: number
+}
+
+const getNumberCometsToGenerate = () => {
+  let number = Math.floor(GENERATION_RATE)
+  const decimalPart = GENERATION_RATE % 1
+  if (Math.random() < decimalPart) {
+    number += 1
+  }
+  return number
 }
 
 const useLogisticValue: () => [
@@ -56,8 +67,8 @@ const Background = () => {
 
     const onFrame = () => {
       const comets = cometsRef.current
-      console.log(additionalVelocityRef.current)
-      if (Math.random() < GENERATION_RATE) {
+      const numberCometsToGenerate = getNumberCometsToGenerate()
+      for (let _ of Array(numberCometsToGenerate).keys()) {
         const newComet = {
           x: Math.random() * window.innerWidth,
           y: 0,

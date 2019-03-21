@@ -4,15 +4,15 @@ import { number } from 'prop-types';
 
 import { css } from '@emotion/core';
 
-const GENERATION_RATE = 5 // Number per frame
+const GENERATION_RATE = 0.5 // Number per frame
 
 const MIN_VELOCITY = 1
 const MAX_VELOCITY = 5
 
-const MIN_COMET_LENGTH = 50
-const MAX_COMET_LENGTH = 300
+const MIN_COMET_SIZE = 10
+const MAX_COMET_SIZE = 50
 
-const INITIAL_VELOCITY = 200
+const INITIAL_VELOCITY = 100
 
 const INITIAL_VELOCITY_RATE = 0.05
 const INTIAIL_VELOCITY_OFFSET = 50
@@ -21,7 +21,7 @@ interface Comet {
   x: number
   y: number
   velocity: number
-  length: number
+  size: number
 }
 
 const getNumberCometsToGenerate = () => {
@@ -31,6 +31,21 @@ const getNumberCometsToGenerate = () => {
     number += 1
   }
   return number
+}
+
+const createComet = () => {
+  const comet = {
+    x: Math.random() * window.innerWidth,
+    y: 0,
+    velocity: Math.random() * (MAX_VELOCITY - MIN_VELOCITY) + MIN_VELOCITY,
+    size: Math.random() * (MAX_COMET_SIZE - MIN_COMET_SIZE) + MIN_COMET_SIZE,
+  }
+  return comet
+}
+
+const getCometLength = (comet: Comet, additionalVelocity: number) => {
+  const multiplier = additionalVelocity + comet.velocity
+  return comet.size * multiplier
 }
 
 const useLogisticValue: () => [
@@ -69,26 +84,19 @@ const Background = () => {
       const comets = cometsRef.current
       const numberCometsToGenerate = getNumberCometsToGenerate()
       for (let _ of Array(numberCometsToGenerate).keys()) {
-        const newComet = {
-          x: Math.random() * window.innerWidth,
-          y: 0,
-          velocity:
-            Math.random() * (MAX_VELOCITY - MIN_VELOCITY) + MIN_VELOCITY,
-          length:
-            Math.random() * (MAX_COMET_LENGTH - MIN_COMET_LENGTH) +
-            MIN_COMET_LENGTH,
-        }
+        const newComet = createComet()
         comets.push(newComet)
       }
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
       ctx.fillStyle = "midnightBlue"
       comets.forEach((comet, index) => {
-        if (comet.y - comet.length > window.innerHeight) {
+        const length = getCometLength(comet, additionalVelocityRef.current)
+        if (comet.y - length > window.innerHeight) {
           comets.splice(index, 1)
         }
         const linearGradient = ctx.createLinearGradient(
           comet.x,
-          comet.y - comet.length,
+          comet.y - length,
           comet.x,
           comet.y
         )
@@ -96,7 +104,7 @@ const Background = () => {
         linearGradient.addColorStop(1, "white")
         ctx.strokeStyle = linearGradient
         ctx.beginPath()
-        ctx.moveTo(comet.x, comet.y - comet.length)
+        ctx.moveTo(comet.x, comet.y - length)
         ctx.lineTo(comet.x, comet.y)
         ctx.closePath()
         ctx.stroke()

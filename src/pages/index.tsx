@@ -6,13 +6,10 @@ import { css } from '@emotion/core';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
-import { SocialMedia } from '../components/SocialMedia';
 
 const IndexPage: React.FunctionComponent = () => (
   <Layout>
     <SEO title="Home" keywords={[`daniel`, `richter`, `portfolio`]} />
-    {/* <SocialMedia /> */}
-    {/* <Link to="/resume">Resume</Link> */}
     <div
       css={css`
         height: 100%;

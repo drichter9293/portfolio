@@ -11,11 +11,15 @@ const Icon = styled.img`
   height: 50px;
 `
 
-export const SocialMedia: React.FunctionComponent = () => {
+const SocialMedia: React.FunctionComponent = () => {
   return (
     <div
       css={css`
         display: flex;
+        img {
+          margin-bottom: 0px;
+          margin-right: 10px;
+        }
       `}
     >
       <a href="https://github.com/drichter9293">
@@ -30,3 +34,5 @@ export const SocialMedia: React.FunctionComponent = () => {
     </div>
   )
 }
+
+export default SocialMedia

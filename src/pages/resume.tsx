@@ -11,19 +11,14 @@ import SEO from '../components/seo';
 const SecondPage: React.FunctionComponent = () => (
   <Layout>
     <SEO title="Resume" />
-    <Link to="/">Go back to the homepage</Link>
-    <p>Resume</p>
     <div
       css={css`
-        position: absolute;
-        height: 508px;
-        width: 920px;
         background-color: midnightblue;
         opacity: 0.8;
-        z-index: -1;
       `}
-    />
-    <Resume />
+    >
+      <Resume />
+    </div>
   </Layout>
 )
 

@@ -13,7 +13,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import { css } from '@emotion/core';
 
 import Background from './Background';
-import Header from './header';
+import Header from './Header';
 
 interface Props {
   children?: React.ReactNode
@@ -40,8 +40,12 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
             flex-direction: column;
           `}
         >
-          <div>
-            <Header siteTitle={data.site.siteMetadata.title} />
+          <div
+            css={css`
+              flex-shrink: 0;
+            `}
+          >
+            <Header />
           </div>
           <main
             css={css`
@@ -50,14 +54,10 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
               padding: 0px 1.0875rem 1.45rem;
               paddingtop: 0;
               flex-grow: 1;
+              overflow-y: auto;
             `}
           >
             {children}
-            {/* <footer>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer> */}
           </main>
         </div>
       </>

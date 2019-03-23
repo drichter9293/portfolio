@@ -1,46 +1,32 @@
 import React from 'react';
 
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
+import { css } from '@emotion/core';
 
 import DarkModeToggle from './DarkModeToggle';
+import SocialMedia from './SocialMedia';
+import Tab from './Tab';
 
-interface Props {
-  siteTitle: string
-}
-
-const Header: React.FunctionComponent<Props> = ({ siteTitle }) => (
+const Header: React.FunctionComponent = () => (
   <header
-    style={{
-      //background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
+    css={css`
+      display: flex;
+      padding: 10px 20px 10px 20px;
+      margin-bottom: 1.45rem;
+    `}
   >
+    <Tab title="Home" to="/" />
+    <Tab title="Resume" to="/resume" />
     <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
+      css={css`
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+      `}
     >
-      {/* <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          Home
-        </Link>
-      </h1> */}
       <DarkModeToggle />
+      <SocialMedia />
     </div>
   </header>
 )
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

@@ -31,7 +31,6 @@ const Experience: React.FunctionComponent = () => {
     }
   `)
   const companies = data.resumeJson.companies
-  console.log(data)
   return (
     <div>
       {companies.map(company => (

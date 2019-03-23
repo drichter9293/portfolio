@@ -92,7 +92,7 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
         )}
         <div>
           {company.positions.map(position => (
-            <Position>
+            <Position key={position.title}>
               <PositionTitle>{position.title}</PositionTitle>
               <PositionDates>{`${position.startDate} - ${position.endDate ||
                 "Present"}`}</PositionDates>

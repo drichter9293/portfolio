@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 import { css } from '@emotion/core';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Resume from '../components/Resume';
 import SEO from '../components/seo';
 

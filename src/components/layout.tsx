@@ -6,9 +6,11 @@
  */
 import React from 'react';
 
-import './layout.css';
+import './Layout.css';
 
 import { graphql, StaticQuery } from 'gatsby';
+
+import { css } from '@emotion/core';
 
 import Background from './Background';
 import Header from './header';
@@ -31,21 +33,32 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
     render={data => (
       <>
         <Background />
-        <Header siteTitle={data.site.siteMetadata.title} />
         <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
+          css={css`
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+          `}
         >
-          <main>{children}</main>
-          {/* <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer> */}
+          <div>
+            <Header siteTitle={data.site.siteMetadata.title} />
+          </div>
+          <main
+            css={css`
+              margin: 0 auto;
+              maxwidth: 960;
+              padding: 0px 1.0875rem 1.45rem;
+              paddingtop: 0;
+              flex-grow: 1;
+            `}
+          >
+            {children}
+            {/* <footer>
+              © {new Date().getFullYear()}, Built with
+              {` `}
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </footer> */}
+          </main>
         </div>
       </>
     )}

@@ -1,16 +1,22 @@
 import React, { useEffect } from 'react';
 
 import { number } from 'prop-types';
+import useDarkMode from 'use-dark-mode';
 
 import { css } from '@emotion/core';
 
-const GENERATION_RATE = 0.5 // Number per frame
+const BACKGROUND_COLOR_LIGHT_MODE = "#fff"
+const BACKGROUND_COLOR_DARK_MODE = "#1a1919"
+const COMET_COLOR_LIGHT_MODE = "#333"
+const COMET_COLOR_DARK_MODE = "#999"
+
+const GENERATION_RATE = 0.2 // Number per frame
 
 const MIN_VELOCITY = 1
 const MAX_VELOCITY = 5
 
-const MIN_COMET_SIZE = 10
-const MAX_COMET_SIZE = 50
+const MIN_COMET_SIZE = 50
+const MAX_COMET_SIZE = 100
 
 const INITIAL_VELOCITY = 100
 
@@ -71,6 +77,15 @@ const useLogisticValue: () => [
 }
 
 const Background = () => {
+  const darkMode = useDarkMode(false)
+  const backgroundColor = darkMode.value
+    ? BACKGROUND_COLOR_DARK_MODE
+    : BACKGROUND_COLOR_LIGHT_MODE
+  const darkModeRef = React.useRef(darkMode.value)
+  if (darkModeRef.current !== darkMode.value) {
+    darkModeRef.current = darkMode.value
+  }
+
   const canvasRef = React.useRef(null)
   const cometsRef = React.useRef([] as Comet[])
   const [additionalVelocityRef, stepAdditionalVelocity] = useLogisticValue()
@@ -81,6 +96,12 @@ const Background = () => {
     const ctx = canvas.getContext("2d")
 
     const onFrame = () => {
+      const backgroundColor = darkModeRef.current
+        ? BACKGROUND_COLOR_DARK_MODE
+        : BACKGROUND_COLOR_LIGHT_MODE
+      const cometColor = darkModeRef.current
+        ? COMET_COLOR_DARK_MODE
+        : COMET_COLOR_LIGHT_MODE
       const comets = cometsRef.current
       const numberCometsToGenerate = getNumberCometsToGenerate()
       for (let _ of Array(numberCometsToGenerate).keys()) {
@@ -88,7 +109,7 @@ const Background = () => {
         comets.push(newComet)
       }
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
-      ctx.fillStyle = "midnightBlue"
+      ctx.fillStyle = backgroundColor
       comets.forEach((comet, index) => {
         const length = getCometLength(comet, additionalVelocityRef.current)
         if (comet.y - length > window.innerHeight) {
@@ -100,8 +121,8 @@ const Background = () => {
           comet.x,
           comet.y
         )
-        linearGradient.addColorStop(0, "midnightBlue")
-        linearGradient.addColorStop(1, "white")
+        linearGradient.addColorStop(0, backgroundColor)
+        linearGradient.addColorStop(1, cometColor)
         ctx.strokeStyle = linearGradient
         ctx.beginPath()
         ctx.moveTo(comet.x, comet.y - length)
@@ -127,7 +148,7 @@ const Background = () => {
         left: 0;
         top: 0;
         z-index: -1;
-        background-color: midnightBlue;
+        background-color: ${backgroundColor};
       `}
     />
   )

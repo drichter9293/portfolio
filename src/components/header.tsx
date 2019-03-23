@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
+import DarkModeToggle from './DarkModeToggle';
+
 interface Props {
   siteTitle: string
 }
@@ -21,7 +23,7 @@ const Header: React.FunctionComponent<Props> = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      {/* <h1 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -29,9 +31,10 @@ const Header: React.FunctionComponent<Props> = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          Home
         </Link>
-      </h1>
+      </h1> */}
+      <DarkModeToggle />
     </div>
   </header>
 )

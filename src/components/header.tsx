@@ -10,6 +10,7 @@ const Header: React.FunctionComponent = () => (
   <header
     css={css`
       display: flex;
+      align-items: center;
       padding: 10px 20px 10px 20px;
       margin-bottom: 1.45rem;
     `}
@@ -18,14 +19,11 @@ const Header: React.FunctionComponent = () => (
     <Tab title="Resume" to="/resume" />
     <div
       css={css`
-        margin-left: auto;
-        display: flex;
-        align-items: center;
+        flex-grow: 1;
       `}
-    >
-      <DarkModeToggle />
-      <SocialMedia />
-    </div>
+    />
+    <DarkModeToggle />
+    <SocialMedia />
   </header>
 )
 

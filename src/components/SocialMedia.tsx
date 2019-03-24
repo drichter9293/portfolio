@@ -1,35 +1,51 @@
 import React from 'react';
 
+import useDarkMode from 'use-dark-mode';
+
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import githubLogo from '../images/github.svg';
-import gmailLogo from '../images/gmail.svg';
-import linkedInLogo from '../images/linkedin.svg';
-
-const Icon = styled.img`
-  height: 50px;
-`
+const COLOR_LIGHT_MODE = "#444"
+const COLOR_HOVER_LIGHT_MODE = "#000"
+const COLOR_DARK_MODE = "#999"
+const COLOR_HOVER_DARK_MODE = "#ccc"
 
 const SocialMedia: React.FunctionComponent = () => {
+  const darkMode = useDarkMode()
+  const iconColor = darkMode.value ? COLOR_DARK_MODE : COLOR_LIGHT_MODE
+  const hoverColor = darkMode.value
+    ? COLOR_HOVER_DARK_MODE
+    : COLOR_HOVER_LIGHT_MODE
+
+  const linkStyle = css`
+    :hover {
+      color: ;
+    }
+  `
+
   return (
     <div
       css={css`
+        height: 2em;
         display: flex;
-        img {
-          margin-bottom: 0px;
-          margin-right: 10px;
+        a {
+          margin-right: 20px;
+        }
+        svg:hover {
+          color: ${hoverColor};
         }
       `}
     >
       <a href="https://github.com/drichter9293">
-        <Icon alt="GitHub" title="GitHub" src={githubLogo} />
+        <FontAwesomeIcon icon={faGithub} size="2x" color={iconColor} />
       </a>
       <a href="mailto:drichter9293@gmail.com">
-        <Icon alt="Email" title="Email" src={gmailLogo} />
+        <FontAwesomeIcon icon={faEnvelope} size="2x" color={iconColor} />
       </a>
       <a href="https://www.linkedin.com/in/drichter9293">
-        <Icon alt="LinkedIn" title="LinkedIn" src={linkedInLogo} />
+        <FontAwesomeIcon icon={faLinkedin} size="2x" color={iconColor} />
       </a>
     </div>
   )

@@ -21,7 +21,8 @@ const DarkModeToggle = () => {
   return (
     <div
       css={css`
-        margin-right: 20px;
+        margin-right: 30px;
+        height: 24px;
         .react-toggle-track-check,
         .react-toggle-track-x {
           height: 16px;

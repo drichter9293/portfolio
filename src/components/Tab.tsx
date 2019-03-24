@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { NONAME } from 'dns';
 import { Link } from 'gatsby';
 import useDarkMode from 'use-dark-mode';
 
@@ -23,8 +24,10 @@ const Tab: React.FunctionComponent<Props> = ({ title, to }) => {
       css={css`
         color: ${color};
         padding: 8px;
+        margin: 0px 8px;
         font-size: 20px;
         text-decoration: none;
+        border-bottom: 2px solid transparent;
       `}
       activeStyle={{
         borderBottom: `2px solid ${color}`,

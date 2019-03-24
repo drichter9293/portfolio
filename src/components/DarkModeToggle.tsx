@@ -9,18 +9,15 @@ import { css } from '@emotion/core';
 
 import moon from '../images/moon.png';
 import sun from '../images/sun.png';
-
-const COLOR_LIGHT_MODE = "#444"
-const COLOR_HOVER_LIGHT_MODE = "#000"
-const COLOR_DARK_MODE = "#999"
-const COLOR_HOVER_DARK_MODE = "#ccc"
+import { useThemeMode } from '../utils/theme';
 
 const DarkModeToggle = () => {
-  const darkMode = useDarkMode(false)
+  const darkMode = useDarkMode()
+  const themeMode = useThemeMode()
 
   return (
     <div
-      css={css`
+      css={theme => css`
         margin-right: 30px;
         height: 24px;
         .react-toggle-track-check,
@@ -35,18 +32,11 @@ const DarkModeToggle = () => {
           right: 5px;
         }
 
-        .react-toggle.react-toggle--checked .react-toggle-track {
-          background-color: ${COLOR_DARK_MODE};
+        .react-toggle .react-toggle-track {
+          background-color: ${theme[themeMode].primaryColor};
         }
-        .react-toggle.react-toggle--checked:hover .react-toggle-track {
-          background-color: ${COLOR_HOVER_DARK_MODE};
-        }
-
-        .react-toggle:not(.react-toggle--checked) .react-toggle-track {
-          background-color: ${COLOR_LIGHT_MODE};
-        }
-        .react-toggle:not(.react-toggle--checked):hover .react-toggle-track {
-          background-color: ${COLOR_HOVER_LIGHT_MODE};
+        .react-toggle:hover .react-toggle-track {
+          background-color: ${theme[themeMode].secondaryColor};
         }
       `}
     >

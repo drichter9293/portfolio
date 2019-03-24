@@ -5,10 +5,7 @@ import useDarkMode from 'use-dark-mode';
 
 import { css } from '@emotion/core';
 
-const BACKGROUND_COLOR_LIGHT_MODE = "#fff"
-const BACKGROUND_COLOR_DARK_MODE = "#1a1919"
-const COMET_COLOR_LIGHT_MODE = "#333"
-const COMET_COLOR_DARK_MODE = "#999"
+import { useTheme } from '../utils/theme';
 
 const GENERATION_RATE = 0.2 // Number per frame
 
@@ -77,13 +74,16 @@ const useLogisticValue: () => [
 }
 
 const Background = () => {
-  const darkMode = useDarkMode(false)
-  const backgroundColor = darkMode.value
-    ? BACKGROUND_COLOR_DARK_MODE
-    : BACKGROUND_COLOR_LIGHT_MODE
+  const darkMode = useDarkMode()
   const darkModeRef = React.useRef(darkMode.value)
   if (darkModeRef.current !== darkMode.value) {
     darkModeRef.current = darkMode.value
+  }
+
+  const theme = useTheme()
+  const themeRef = React.useRef(theme)
+  if (themeRef.current !== theme) {
+    themeRef.current = theme
   }
 
   const canvasRef = React.useRef(null)
@@ -96,12 +96,7 @@ const Background = () => {
     const ctx = canvas.getContext("2d")
 
     const onFrame = () => {
-      const backgroundColor = darkModeRef.current
-        ? BACKGROUND_COLOR_DARK_MODE
-        : BACKGROUND_COLOR_LIGHT_MODE
-      const cometColor = darkModeRef.current
-        ? COMET_COLOR_DARK_MODE
-        : COMET_COLOR_LIGHT_MODE
+      const theme = themeRef.current
       const comets = cometsRef.current
       const numberCometsToGenerate = getNumberCometsToGenerate()
       for (let _ of Array(numberCometsToGenerate).keys()) {
@@ -109,7 +104,7 @@ const Background = () => {
         comets.push(newComet)
       }
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
-      ctx.fillStyle = backgroundColor
+      ctx.fillStyle = theme.backgroundColor
       comets.forEach((comet, index) => {
         const length = getCometLength(comet, additionalVelocityRef.current)
         if (comet.y - length > window.innerHeight) {
@@ -121,8 +116,8 @@ const Background = () => {
           comet.x,
           comet.y
         )
-        linearGradient.addColorStop(0, backgroundColor)
-        linearGradient.addColorStop(1, cometColor)
+        linearGradient.addColorStop(0, theme.backgroundColor)
+        linearGradient.addColorStop(1, theme.primaryColor)
         ctx.strokeStyle = linearGradient
         ctx.beginPath()
         ctx.moveTo(comet.x, comet.y - length)
@@ -148,7 +143,7 @@ const Background = () => {
         left: 0;
         top: 0;
         z-index: -1;
-        background-color: ${backgroundColor};
+        background-color: ${theme.backgroundColor};
       `}
     />
   )

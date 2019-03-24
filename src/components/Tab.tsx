@@ -6,8 +6,7 @@ import useDarkMode from 'use-dark-mode';
 
 import { css } from '@emotion/core';
 
-const COLOR_LIGHT_MODE = "#333"
-const COLOR_DARK_MODE = "#999"
+import { useTheme } from '../utils/theme';
 
 interface Props {
   title: string
@@ -15,22 +14,24 @@ interface Props {
 }
 
 const Tab: React.FunctionComponent<Props> = ({ title, to }) => {
-  const darkMode = useDarkMode()
-  const color = darkMode.value ? COLOR_DARK_MODE : COLOR_LIGHT_MODE
+  const theme = useTheme()
 
   return (
     <Link
       to={to}
       css={css`
-        color: ${color};
+        color: ${theme.primaryColor};
         padding: 8px;
         margin: 0px 8px;
         font-size: 20px;
         text-decoration: none;
         border-bottom: 2px solid transparent;
+        &:hover {
+          color: ${theme.secondaryColor};
+        }
       `}
       activeStyle={{
-        borderBottom: `2px solid ${color}`,
+        borderBottom: `2px solid ${theme.primaryColor}`,
       }}
     >
       {title}

@@ -21,6 +21,7 @@ const IndexPage: React.FunctionComponent = () => (
       <div
         css={css`
           font-size: 60px;
+          margin-bottom: 60px;
         `}
       >
         Hello, Daniel Richter's World

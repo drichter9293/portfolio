@@ -11,14 +11,7 @@ import SEO from '../components/seo';
 const SecondPage: React.FunctionComponent = () => (
   <Layout>
     <SEO title="Resume" />
-    <div
-      css={css`
-        background-color: midnightblue;
-        opacity: 0.8;
-      `}
-    >
-      <Resume />
-    </div>
+    <Resume />
   </Layout>
 )
 

@@ -5,6 +5,9 @@ import Img from 'gatsby-image';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
+import { LIGHT_MODE } from '../../constants';
+import { useTheme, useThemeMode } from '../../utils/theme';
+
 export interface IProject {
   name: string
   description: string
@@ -18,7 +21,8 @@ export interface IPosition {
 
 export interface Company {
   name: string
-  logo?: any
+  logoLight?: any
+  logoDark?: any
   positions: [IPosition]
   projects: [IProject]
 }
@@ -52,22 +56,28 @@ const Project = styled.div`
 `
 
 const ProjectName = styled.div`
+  color: ${props => props.theme.primaryColor};
+  font-size: 18px;
   font-style: italic;
 `
 
 const ProjectDescription = styled.div`
+  color: ${props => props.theme.secondaryColor};
   font-size: 14px;
   margin-left: 20px;
 `
 
 const Company: React.FunctionComponent<Props> = ({ company }) => {
+  const themeMode = useThemeMode()
+  const theme = useTheme()
+  const logo = themeMode === LIGHT_MODE ? company.logoLight : company.logoDark
   return (
     <div
       css={css`
         display: flex;
         padding: 10px;
         :not(:last-child) {
-          border-bottom: 1px solid black;
+          border-bottom: 1px solid ${theme.secondaryColor};
         }
       `}
     >
@@ -77,14 +87,14 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
           margin: "auto 0",
         }}
       >
-        {company.logo ? (
+        {logo ? (
           <CompanyName>
             <Img
               imgStyle={{
                 objectFit: "contain",
                 maxHeight: "30px",
               }}
-              fluid={company.logo.childImageSharp.fluid}
+              fluid={logo.childImageSharp.fluid}
             />
           </CompanyName>
         ) : (
@@ -103,8 +113,10 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
       <div>
         {company.projects.map(project => (
           <Project key={project.name}>
-            <ProjectName>{project.name}</ProjectName>
-            <ProjectDescription>{`${project.description}`}</ProjectDescription>
+            <ProjectName theme={theme}>{project.name}</ProjectName>
+            <ProjectDescription theme={theme}>{`${
+              project.description
+            }`}</ProjectDescription>
           </Project>
         ))}
       </div>

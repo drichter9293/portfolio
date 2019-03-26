@@ -615,7 +615,7 @@ footer {
 
 body.light-mode {
   background-color: #fff;
-  color: #333;
+  color: #2471a3;
   transition: background-color 0.3s ease;
 }
 body.dark-mode {

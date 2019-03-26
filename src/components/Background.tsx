@@ -7,7 +7,7 @@ import { css } from '@emotion/core';
 
 import { useTheme } from '../utils/theme';
 
-const GENERATION_RATE = 0.2 // Number per frame
+const GENERATION_RATE = 0.02 // Number per frame
 
 const MIN_VELOCITY = 1
 const MAX_VELOCITY = 5
@@ -91,6 +91,7 @@ const Background = () => {
   const [additionalVelocityRef, stepAdditionalVelocity] = useLogisticValue()
 
   React.useLayoutEffect(() => {
+    console.log("Use layout effect")
     const canvas = canvasRef.current as HTMLCanvasElement
 
     const ctx = canvas.getContext("2d")

@@ -10,7 +10,14 @@ const Experience: React.FunctionComponent = () => {
       resumeJson {
         companies {
           name
-          logo {
+          logoLight {
+            childImageSharp {
+              fluid(maxHeight: 50) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          logoDark {
             childImageSharp {
               fluid(maxHeight: 50) {
                 ...GatsbyImageSharpFluid

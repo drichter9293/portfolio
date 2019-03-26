@@ -6,10 +6,15 @@ const theme = {
     secondaryColor: "#ccc",
     backgroundColor: "#1a1919",
   },
+  // [LIGHT_MODE]: {
+  //   primaryColor: "#444",
+  //   secondaryColor: "#000",
+  //   backgroundColor: "#fff",
+  // },
   [LIGHT_MODE]: {
-    primaryColor: "#444",
-    secondaryColor: "#000",
-    backgroundColor: "#fff",
+    primaryColor: "#2471A3",
+    secondaryColor: "#154360",
+    backgroundColor: "#F2F4F4", //"#E5E7E9",
   },
 }
 

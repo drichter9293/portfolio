@@ -6,11 +6,7 @@ import Experience from './Experience';
 
 const Resume: React.FunctionComponent = () => {
   return (
-    <div
-      css={css`
-        color: white;
-      `}
-    >
+    <div>
       <Experience />
     </div>
   )

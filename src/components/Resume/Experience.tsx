@@ -32,6 +32,7 @@ const Experience: React.FunctionComponent = () => {
           projects {
             name
             description
+            details
           }
         }
       }

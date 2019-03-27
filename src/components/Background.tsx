@@ -91,7 +91,6 @@ const Background = () => {
   const [additionalVelocityRef, stepAdditionalVelocity] = useLogisticValue()
 
   React.useLayoutEffect(() => {
-    console.log("Use layout effect")
     const canvas = canvasRef.current as HTMLCanvasElement
 
     const ctx = canvas.getContext("2d")

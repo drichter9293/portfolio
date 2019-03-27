@@ -15,6 +15,7 @@ import useDarkMode from 'use-dark-mode';
 import { css } from '@emotion/core';
 
 import theme from '../theme';
+import { useThemeMode } from '../utils/theme';
 import Background from './Background';
 import Header from './Header';
 
@@ -23,6 +24,7 @@ interface Props {
 }
 
 const Layout: React.FunctionComponent<Props> = ({ children }) => {
+  const themeMode = useThemeMode()
   return (
     <StaticQuery
       query={graphql`
@@ -42,6 +44,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
               height: 100vh;
               display: flex;
               flex-direction: column;
+              color: ${theme[themeMode].primaryColor};
             `}
           >
             <div
@@ -59,6 +62,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
                 paddingtop: 0;
                 flex-grow: 1;
                 overflow-y: auto;
+                margin: 0px 250px;
               `}
             >
               {children}

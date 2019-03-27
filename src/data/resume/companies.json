@@ -17,17 +17,32 @@
       ],
       "projects": [
         {
+          "name": "CDN Deployment",
+          "description": "Design deployment and bundling strategy for react applications",
+          "details": [
+            "Build webpack plugin to exclude predetermined set of dependencies from bundle",
+            "Build loader that includes bundle and shared dependencies on webpage"
+          ]
+        },
+        {
           "name": "Virence Migration",
-          "description": "Lead project to migrate the frontend codebase of an aquisition to React and our internal design system",
-          "details": ["Introduced around a dozen AngularJS developers to React"]
+          "description": "Lead project to migrate the frontend codebase of an aquisition to React",
+          "details": [
+            "Introduced around a dozen AngularJS developers to React and our design system",
+            "Architected solutions to maintain compatability with preexisting backend"
+          ]
         },
         {
           "name": "Nursing Flowsheets",
-          "description": "Created a workflow for nurses to document patient assessments"
+          "description": "Created a workflow for nurses to document patient assessments",
+          "details": [
+            "Built the first client facing React application in the monolith",
+            "Reduced load and render time of data grid by upwards of 90%"
+          ]
         },
         {
           "name": "Messing Operations",
-          "description": "Maintained message queuing system for sending calls, emails, and texts to patients",
+          "description": "Maintained message queuing system for sending calls, emails, and SMS to patients",
           "details": [
             "Created Grafana dashboards to monitor throughput, analyze bottlenecks, and report metrics",
             "Collaborated with a remote team to migrate messaging infrastructure to a new service provider"

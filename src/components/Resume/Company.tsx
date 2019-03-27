@@ -11,6 +11,7 @@ import { useTheme, useThemeMode } from '../../utils/theme';
 export interface IProject {
   name: string
   description: string
+  details: string[]
 }
 
 export interface IPosition {
@@ -32,50 +33,59 @@ interface Props {
 }
 
 const CompanyName = styled.div`
-  width: 200px;
-  height: 30px;
+  width: 250px;
+  height: 40px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `
 
 const Position = styled.div`
   padding-left: 10px;
+  padding-bottom: 10px;
 `
 
 const PositionTitle = styled.div`
-  font-size: 16px;
+  font-size: 20px;
 `
 
 const PositionDates = styled.div`
   padding-left: 10px;
-  font-size: 14px;
+  font-size: 16px;
   font-style: italic;
 `
 const Project = styled.div`
-  margin-left: 20px;
+  margin-left: 50px;
 `
 
 const ProjectName = styled.div`
-  color: ${props => props.theme.primaryColor};
-  font-size: 18px;
-  font-style: italic;
+  font-size: 20px;
+  padding-bottom: 5px;
 `
 
 const ProjectDescription = styled.div`
   color: ${props => props.theme.secondaryColor};
-  font-size: 14px;
+  font-size: 16px;
+  font-style: italic;
   margin-left: 20px;
+`
+
+const ProjectDetail = styled.div`
+  color: ${props => props.theme.secondaryColor};
+  font-size: 16px;
+  margin-left: 20px;
+  padding-bottom: 5px;
 `
 
 const Company: React.FunctionComponent<Props> = ({ company }) => {
   const themeMode = useThemeMode()
   const theme = useTheme()
   const logo = themeMode === LIGHT_MODE ? company.logoLight : company.logoDark
+
   return (
     <div
       css={css`
         display: flex;
-        padding: 10px;
+        padding: 20px;
         :not(:last-child) {
           border-bottom: 1px solid ${theme.secondaryColor};
         }
@@ -83,7 +93,7 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
     >
       <div
         style={{
-          width: "200px",
+          width: "250px",
           margin: "auto 0",
         }}
       >
@@ -92,7 +102,7 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
             <Img
               imgStyle={{
                 objectFit: "contain",
-                maxHeight: "30px",
+                maxHeight: "40px",
               }}
               fluid={logo.childImageSharp.fluid}
             />
@@ -102,7 +112,7 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
         )}
         <div>
           {company.positions.map(position => (
-            <Position key={position.title}>
+            <Position key={position.title} theme={theme}>
               <PositionTitle>{position.title}</PositionTitle>
               <PositionDates>{`${position.startDate} - ${position.endDate ||
                 "Present"}`}</PositionDates>
@@ -113,10 +123,23 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
       <div>
         {company.projects.map(project => (
           <Project key={project.name}>
-            <ProjectName theme={theme}>{project.name}</ProjectName>
-            <ProjectDescription theme={theme}>{`${
-              project.description
-            }`}</ProjectDescription>
+            <div
+              css={css`
+                display: flex;
+                align-items: baseline;
+              `}
+            >
+              <ProjectName theme={theme}>{project.name}</ProjectName>
+              <ProjectDescription theme={theme}>
+                {project.description}
+              </ProjectDescription>
+            </div>
+            {project.details &&
+              project.details.map((detail, index) => (
+                <ProjectDetail key={index} theme={theme}>
+                  {detail}
+                </ProjectDetail>
+              ))}
           </Project>
         ))}
       </div>

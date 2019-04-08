@@ -91,29 +91,6 @@
           ]
         }
       ]
-    },
-    {
-      "display": false,
-      "name": "Braunschweig Lab",
-      "positions": [
-        {
-          "title": "Research Assistant",
-          "startDate": "2013-02-01",
-          "endDate": "2014-02-01"
-        }
-      ],
-      "projects": [
-        {
-          "name": "Synthetic Lectins and Host-Guest Chemistry",
-          "description": "Studied the interactions between carbohydrates and synthetic lectins through variable temperature Nuclear Magnetic Resonance titrations",
-          "details": [
-            "Applied new mathematical models for ligand-host systems to quantitatively determine the association constants between carbohydrates and synthetic lectins using Microsoft Excel",
-            "Analyzed results using Microsoft Excel by applying new mathematical models for ligand-host systems to determine quantitatively the association constants between the carbohydrates and synthetic lectins",
-            "Modeled the motion of chemically propelled nanorods using Java and AWT Graphics",
-            "Illustrated chemistry and instrumentation using Autodesk 3ds Max"
-          ]
-        }
-      ]
     }
   ]
 }

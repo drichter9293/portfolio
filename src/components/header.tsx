@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 import { slide as Menu } from 'react-burger-menu';
+import { useMedia } from 'use-media';
 
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -25,6 +26,7 @@ const MenuItem = styled(Link)`
 const Header: React.FunctionComponent = () => {
   const theme = useTheme()
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const isWide = useMedia({ minWidth: "600px" })
 
   const styles = {
     bmBurgerButton: {
@@ -48,21 +50,23 @@ const Header: React.FunctionComponent = () => {
 
   return (
     <>
-      <Menu
-        customBurgerIcon={false}
-        isOpen={isMenuOpen}
-        customCrossIcon={
-          <FontAwesomeIcon icon={faTimes} color={theme.backgroundColor} />
-        }
-        styles={styles}
-      >
-        <MenuItem theme={theme} to="/">
-          Home
-        </MenuItem>
-        <MenuItem theme={theme} to="/resume">
-          Resume
-        </MenuItem>
-      </Menu>
+      {!isWide && (
+        <Menu
+          customBurgerIcon={false}
+          isOpen={isMenuOpen}
+          customCrossIcon={
+            <FontAwesomeIcon icon={faTimes} color={theme.backgroundColor} />
+          }
+          styles={styles}
+        >
+          <MenuItem theme={theme} to="/">
+            Home
+          </MenuItem>
+          <MenuItem theme={theme} to="/resume">
+            Resume
+          </MenuItem>
+        </Menu>
+      )}
       <header
         css={css`
           display: flex;
@@ -70,11 +74,16 @@ const Header: React.FunctionComponent = () => {
           padding: 10px 14px;
         `}
       >
-        {/* <Tab title="Home" to="/" />
-    <Tab title="Resume" to="/resume" /> */}
-        <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <FontAwesomeIcon icon={faBars} size={ICON_SIZE} />
-        </div>
+        {isWide ? (
+          <>
+            <Tab title="Home" to="/" />
+            <Tab title="Resume" to="/resume" />
+          </>
+        ) : (
+          <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <FontAwesomeIcon icon={faBars} size={ICON_SIZE} />
+          </div>
+        )}
         <div
           css={css`
             flex-grow: 1;

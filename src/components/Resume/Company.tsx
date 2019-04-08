@@ -85,6 +85,7 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
     <div
       css={css`
         display: flex;
+        flex-wrap: wrap;
         padding: 20px;
         :not(:last-child) {
           border-bottom: 1px solid ${theme.secondaryColor};
@@ -92,10 +93,10 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
       `}
     >
       <div
-        style={{
-          width: "250px",
-          margin: "auto 0",
-        }}
+        css={css`
+          width: 250px;
+          margin: auto 0;
+        `}
       >
         {logo ? (
           <CompanyName>
@@ -120,7 +121,14 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
           ))}
         </div>
       </div>
-      <div>
+      <div
+        css={css`
+          min-width: 500px;
+          @media (max-width: 500px) {
+            min-width: 320px;
+          }
+        `}
+      >
         {company.projects.map(project => (
           <Project key={project.name}>
             <div

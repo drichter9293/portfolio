@@ -24,6 +24,9 @@ const IndexPage: React.FunctionComponent = () => (
           font-size: 80px;
           font-weight: 300;
           margin-bottom: 20px;
+          @media (max-width: 800px) {
+            font-size: 40px;
+          }
         `}
       >
         DANIEL RICHTER
@@ -33,6 +36,9 @@ const IndexPage: React.FunctionComponent = () => (
           font-size: 40px;
           font-weight: 200;
           font-style: italic;
+          @media (max-width: 800px) {
+            font-size: 20px;
+          }
         `}
       >
         SOFTWARE ENGINEER

@@ -57,12 +57,10 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
             <main
               css={css`
                 margin: 0 auto;
-                maxwidth: 960;
+                max-width: 1200px;
                 padding: 0px 1.0875rem 1.45rem;
-                paddingtop: 0;
                 flex-grow: 1;
                 overflow-y: auto;
-                margin: 0px 250px;
               `}
             >
               {children}

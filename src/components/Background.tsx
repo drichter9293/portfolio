@@ -133,11 +133,18 @@ const Background = () => {
     window.requestAnimationFrame(onFrame)
   }, [])
 
+  const [height, setHeight] = React.useState<number>(0)
+  const [width, setWidth] = React.useState<number>(0)
+
+  React.useLayoutEffect(() => {
+    setHeight(window.innerHeight)
+    setWidth(window.innerWidth)
+  }, [])
   return (
     <canvas
       ref={canvasRef}
-      height={window.innerHeight}
-      width={window.innerWidth}
+      height={height}
+      width={width}
       css={css`
         position: absolute;
         left: 0;

@@ -19,7 +19,7 @@ const SocialMedia: React.FunctionComponent = () => {
       css={theme => css`
         height: 2em;
         display: flex;
-        a {
+        a:not(:last-child) {
           margin-right: 20px;
         }
         svg {

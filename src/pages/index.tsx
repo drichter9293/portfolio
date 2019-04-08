@@ -14,18 +14,29 @@ const IndexPage: React.FunctionComponent = () => (
       css={css`
         height: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
       `}
     >
-      <div
+      <h1
         css={css`
-          font-size: 60px;
-          margin-bottom: 60px;
+          font-size: 80px;
+          font-weight: 300;
+          margin-bottom: 20px;
         `}
       >
-        Hello, Daniel Richter's World
-      </div>
+        DANIEL RICHTER
+      </h1>
+      <h2
+        css={css`
+          font-size: 40px;
+          font-weight: 200;
+          font-style: italic;
+        `}
+      >
+        SOFTWARE ENGINEER
+      </h2>
     </div>
   </Layout>
 )

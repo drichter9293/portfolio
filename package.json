@@ -29,6 +29,7 @@
     "gatsby-transformer-sharp": "^2.1.16",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-burger-menu": "^2.6.8",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-toggle": "^4.0.2",

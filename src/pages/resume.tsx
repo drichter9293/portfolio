@@ -6,7 +6,7 @@ import { css } from '@emotion/core';
 
 import Layout from '../components/Layout';
 import Resume from '../components/Resume';
-import SEO from '../components/seo';
+import SEO from '../components/Seo';
 
 const SecondPage: React.FunctionComponent = () => (
   <Layout>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Link } from 'gatsby';
-import { slide as Menu } from 'react-burger-menu';
 import { useMedia } from 'use-media';
 
 import { css } from '@emotion/core';
@@ -10,63 +9,36 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useTheme } from '../utils/theme';
+import BurgerMenu from './BurgerMenu';
 import DarkModeToggle from './DarkModeToggle';
 import SocialMedia from './SocialMedia';
-import Tab from './Tab';
+import Tabs from './Tabs';
 
 const ICON_SIZE = "2x"
-
-const MenuItem = styled(Link)`
-  color: ${props => props.theme.backgroundColor};
-  font-size: 30px;
-  text-decoration: none;
-  padding: 5px;
-`
 
 const Header: React.FunctionComponent = () => {
   const theme = useTheme()
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const isWide = useMedia({ minWidth: "600px" })
 
-  const styles = {
-    bmBurgerButton: {
-      width: "36px",
-      height: "30px",
+  const menuItems = [
+    {
+      title: "Home",
+      to: "/",
     },
-    bmBurgerBarsHover: {
-      background: "#a90000",
+    {
+      title: "Projects",
+      to: "/projects",
     },
-    bmMenuWrap: {
-      position: "fixed",
-      height: "100%",
-      width: "100%",
+    {
+      title: "Resume",
+      to: "/resume",
     },
-    bmMenu: {
-      background: theme.secondaryColor,
-      padding: "2.5em 1.5em 0",
-      fontSize: "1.15em",
-    },
-  }
+  ]
 
   return (
     <>
-      {!isWide && (
-        <Menu
-          customBurgerIcon={false}
-          isOpen={isMenuOpen}
-          customCrossIcon={
-            <FontAwesomeIcon icon={faTimes} color={theme.backgroundColor} />
-          }
-          styles={styles}
-        >
-          <MenuItem theme={theme} to="/">
-            Home
-          </MenuItem>
-          <MenuItem theme={theme} to="/resume">
-            Resume
-          </MenuItem>
-        </Menu>
-      )}
+      {!isWide && <BurgerMenu menuItems={menuItems} isMenuOpen={isMenuOpen} />}
       <header
         css={css`
           display: flex;
@@ -75,10 +47,7 @@ const Header: React.FunctionComponent = () => {
         `}
       >
         {isWide ? (
-          <>
-            <Tab title="Home" to="/" />
-            <Tab title="Resume" to="/resume" />
-          </>
+          <Tabs menuItems={menuItems} />
         ) : (
           <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <FontAwesomeIcon icon={faBars} size={ICON_SIZE} />

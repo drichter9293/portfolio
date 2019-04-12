@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 
-import { number } from 'prop-types';
 import useDarkMode from 'use-dark-mode';
 
 import { css } from '@emotion/core';
 
 import { useTheme } from '../utils/theme';
 
-const GENERATION_RATE = 0.02 // Number per frame
+const GENERATION_RATE = 0.1 // Number per frame
 
 const MIN_VELOCITY = 1
 const MAX_VELOCITY = 5

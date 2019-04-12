@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { Link } from 'gatsby';
-
 import { css } from '@emotion/core';
 
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
+import logo from '../images/favicon.svg';
 
 const IndexPage: React.FunctionComponent = () => (
   <Layout>
@@ -19,6 +18,7 @@ const IndexPage: React.FunctionComponent = () => (
         justify-content: center;
       `}
     >
+      <img src={logo} css={css``} />
       <h1
         css={css`
           font-size: 80px;

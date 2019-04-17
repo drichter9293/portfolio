@@ -1,13 +1,13 @@
 import React from 'react';
 
+import Experience from '../components/Experience';
 import Layout from '../components/Layout';
-import Resume from '../components/Resume';
 import SEO from '../components/Seo';
 
 const SecondPage: React.FunctionComponent = () => (
   <Layout>
-    <SEO title="Resume" />
-    <Resume />
+    <SEO title="Experience" />
+    <Experience />
   </Layout>
 )
 

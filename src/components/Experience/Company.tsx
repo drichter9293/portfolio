@@ -54,25 +54,26 @@ const PositionDates = styled.div`
   font-style: italic;
 `
 const Project = styled.div`
-  margin-left: 50px;
+  flex-basis: 250px;
+  padding: 8px;
 `
 
 const ProjectName = styled.div`
   font-size: 20px;
-  padding-bottom: 5px;
+  padding-bottom: 8px;
+  flex-basis: 250px;
 `
 
 const ProjectDescription = styled.div`
   color: ${props => props.theme.secondaryColor};
   font-size: 16px;
   font-style: italic;
-  margin-left: 20px;
 `
 
 const ProjectDetail = styled.div`
   color: ${props => props.theme.secondaryColor};
   font-size: 16px;
-  margin-left: 20px;
+  margin-left: 16px;
   padding-bottom: 5px;
 `
 
@@ -85,7 +86,6 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
     <div
       css={css`
         display: flex;
-        flex-wrap: wrap;
         padding: 20px;
         :not(:last-child) {
           border-bottom: 1px solid ${theme.secondaryColor};
@@ -127,6 +127,7 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
           @media (max-width: 500px) {
             min-width: 320px;
           }
+          margin-left: 32px;
         `}
       >
         {company.projects.map(project => (
@@ -145,7 +146,7 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
             {project.details &&
               project.details.map((detail, index) => (
                 <ProjectDetail key={index} theme={theme}>
-                  {detail}
+                  {`– ${detail}`}
                 </ProjectDetail>
               ))}
           </Project>

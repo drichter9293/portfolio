@@ -31,8 +31,8 @@ const Header: React.FunctionComponent = () => {
       to: "/projects",
     },
     {
-      title: "Resume",
-      to: "/resume",
+      title: "Experience",
+      to: "/experience",
     },
   ]
 

@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import Img from 'gatsby-image';
+import { withTheme } from 'emotion-theming'
+import Img from 'gatsby-image'
 
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
-import { LIGHT_MODE } from '../../constants';
-import { useTheme, useThemeMode } from '../../utils/theme';
+import { LIGHT_MODE } from '../../constants'
+import { useTheme, useThemeMode } from '../../utils/theme'
 
 export interface IProject {
   name: string
@@ -29,81 +30,106 @@ export interface Company {
 }
 
 interface Props {
+  theme: any
   company: Company
 }
 
+const CompanyWrapper = styled.div`
+  display: flex;
+  padding: 20px;
+  :not(:last-child) {
+    border-bottom: ${props => `1px solid ${props.theme.secondaryColor}`};
+  }
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+    padding: 0;
+  }
+`
+
+const CompanyDetails = styled.div`
+  width: 32%;
+  min-width: 150px;
+  max-width: 250px;
+  flex-grow: 1;
+`
+
 const CompanyName = styled.div`
-  width: 250px;
-  height: 40px;
+  height: ${props => props.theme.icon.height};
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: ${props => props.theme.spacing.large};
 `
 
 const Position = styled.div`
-  padding-left: 10px;
-  padding-bottom: 10px;
+  padding-left: ${props => props.theme.spacing.medium};
+  padding-bottom: ${props => props.theme.spacing.medium};
 `
 
 const PositionTitle = styled.div`
-  font-size: 20px;
+  font-size: ${props => props.theme.fontSize.large};
 `
 
 const PositionDates = styled.div`
-  padding-left: 10px;
-  font-size: 16px;
+  padding-left: ${props => props.theme.spacing.medium};
+  font-size: ${props => props.theme.fontSize.medium};
   font-style: italic;
 `
+
+const Projects = styled.div`
+  flex-grow: 1;
+  margin-left: 16px;
+  @media (max-width: 500px) {
+    min-width: 320px;
+    margin-left: 0;
+  }
+`
+
 const Project = styled.div`
-  flex-basis: 250px;
-  padding: 8px;
+  padding: ${props => props.theme.spacing.medium};
+`
+
+const ProjectHeader = styled.div`
+  display: flex;
+  align-items: baseline;
+  padding-bottom: ${props => props.theme.spacing.medium};
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+  }
 `
 
 const ProjectName = styled.div`
-  font-size: 20px;
-  padding-bottom: 8px;
-  flex-basis: 250px;
+  font-size: ${props => props.theme.fontSize.large};
+  color: ${props => props.theme.primaryColor};
+  padding-right: ${props => props.theme.spacing.medium};
+  width: 30%;
+  @media (max-width: 500px) {
+    flex-grow: 1;
+  }
 `
 
 const ProjectDescription = styled.div`
   color: ${props => props.theme.secondaryColor};
-  font-size: 16px;
+  font-size: ${props => props.theme.fontSize.medium};
   font-style: italic;
 `
 
 const ProjectDetail = styled.div`
-  color: ${props => props.theme.secondaryColor};
-  font-size: 16px;
-  margin-left: 16px;
-  padding-bottom: 5px;
+  font-size: ${props => props.theme.fontSize.medium};
+  margin-left: ${props => props.theme.spacing.large};
+  padding-bottom: ${props => props.theme.spacing.small};
 `
 
-const Company: React.FunctionComponent<Props> = ({ company }) => {
+const Company: React.FunctionComponent<Props> = ({ theme, company }) => {
   const themeMode = useThemeMode()
-  const theme = useTheme()
   const logo = themeMode === LIGHT_MODE ? company.logoLight : company.logoDark
-
   return (
-    <div
-      css={css`
-        display: flex;
-        padding: 20px;
-        :not(:last-child) {
-          border-bottom: 1px solid ${theme.secondaryColor};
-        }
-      `}
-    >
-      <div
-        css={css`
-          width: 250px;
-          margin: auto 0;
-        `}
-      >
+    <CompanyWrapper>
+      <CompanyDetails>
         {logo ? (
           <CompanyName>
             <Img
               imgStyle={{
-                objectFit: "contain",
-                maxHeight: "40px",
+                objectFit: 'contain',
+                maxHeight: theme.icon.height,
               }}
               fluid={logo.childImageSharp.fluid}
             />
@@ -113,47 +139,32 @@ const Company: React.FunctionComponent<Props> = ({ company }) => {
         )}
         <div>
           {company.positions.map(position => (
-            <Position key={position.title} theme={theme}>
+            <Position key={position.title}>
               <PositionTitle>{position.title}</PositionTitle>
               <PositionDates>{`${position.startDate} - ${position.endDate ||
-                "Present"}`}</PositionDates>
+                'Present'}`}</PositionDates>
             </Position>
           ))}
         </div>
-      </div>
-      <div
-        css={css`
-          min-width: 500px;
-          @media (max-width: 500px) {
-            min-width: 320px;
-          }
-          margin-left: 32px;
-        `}
-      >
+      </CompanyDetails>
+      <Projects>
         {company.projects.map(project => (
           <Project key={project.name}>
-            <div
-              css={css`
-                display: flex;
-                align-items: baseline;
-              `}
-            >
-              <ProjectName theme={theme}>{project.name}</ProjectName>
-              <ProjectDescription theme={theme}>
-                {project.description}
-              </ProjectDescription>
-            </div>
+            <ProjectHeader>
+              <ProjectName>{project.name}</ProjectName>
+              <ProjectDescription>{project.description}</ProjectDescription>
+            </ProjectHeader>
             {project.details &&
               project.details.map((detail, index) => (
-                <ProjectDetail key={index} theme={theme}>
-                  {`– ${detail}`}
-                </ProjectDetail>
+                <ProjectDetail key={index}>{`– ${detail}`}</ProjectDetail>
               ))}
           </Project>
         ))}
-      </div>
-    </div>
+      </Projects>
+    </CompanyWrapper>
   )
 }
 
-export default Company
+const CompanyWithTheme = withTheme(Company)
+
+export default CompanyWithTheme

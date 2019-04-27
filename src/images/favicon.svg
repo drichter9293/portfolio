@@ -2,7 +2,6 @@
    <style>
       .hex {
         stroke-width: 20px;
-        fill: white;
         stroke: url(#grad);
       }
       .text {
@@ -15,6 +14,6 @@
       <stop offset="100%" style="stop-color:#3DDAD7;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <polygon class="hex" stroke="url(#grad)" points="140,10 10,85 10,235 140,310 270,235 270,85"/>
+  <polygon class="hex" stroke="url(#grad)" points="140,10 10,85 10,235 140,310 270,235 270,85" fill="transparent"/>
   <text fill="url(#grad)" x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" class="text">DR</text>
 </svg>

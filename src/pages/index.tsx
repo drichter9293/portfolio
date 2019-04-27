@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/core'
 
-import Layout from '../components/Layout';
-import SEO from '../components/Seo';
-import logo from '../images/favicon.svg';
+import Layout from '../components/Layout'
+import SEO from '../components/Seo'
+import logo from '../images/favicon.svg'
 
 const IndexPage: React.FunctionComponent = () => (
   <Layout>

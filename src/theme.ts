@@ -5,6 +5,7 @@ const themeModes = {
     primaryColor: '#BDBDBD',
     secondaryColor: '#EEEEEE',
     backgroundColor: '#000000',
+    fontColor: '#FFFFFF',
   },
   // [DARK_MODE]: {
   //   primaryColor: "#999",
@@ -25,6 +26,7 @@ const themeModes = {
     //backgroundColor: "#F2F4F4", //"#E5E7E9",
     //backgroundColor: "#EDFAFD",
     backgroundColor: '#FFFFFF',
+    fontColor: '#000000',
   },
 }
 

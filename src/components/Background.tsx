@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 
-import useDarkMode from 'use-dark-mode';
+import { withTheme } from 'emotion-theming'
+import useWindowSize from 'react-use/lib/useWindowSize'
+import useDarkMode from 'use-dark-mode'
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/core'
 
-import { useTheme } from '../utils/theme';
+import { useTheme } from '../utils/theme'
 
 const GENERATION_RATE = 0.1 // Number per frame
 
@@ -35,9 +37,9 @@ const getNumberCometsToGenerate = () => {
   return number
 }
 
-const createComet = () => {
+const createComet = (width: number) => {
   const comet = {
-    x: Math.random() * window.innerWidth,
+    x: Math.random() * width,
     y: 0,
     velocity: Math.random() * (MAX_VELOCITY - MIN_VELOCITY) + MIN_VELOCITY,
     size: Math.random() * (MAX_COMET_SIZE - MIN_COMET_SIZE) + MIN_COMET_SIZE,
@@ -72,41 +74,50 @@ const useLogisticValue: () => [
   return [valueRef, incrementStep]
 }
 
-const Background = () => {
+interface Props {
+  theme: any
+}
+
+const Background: React.FunctionComponent<Props> = withTheme(({ theme }) => {
   const darkMode = useDarkMode()
   const darkModeRef = React.useRef(darkMode.value)
   if (darkModeRef.current !== darkMode.value) {
     darkModeRef.current = darkMode.value
   }
 
-  const theme = useTheme()
   const themeRef = React.useRef(theme)
   if (themeRef.current !== theme) {
     themeRef.current = theme
   }
 
   const canvasRef = React.useRef(null)
+
+  const windowSize = useWindowSize()
+  React.useLayoutEffect(() => {
+    canvasRef.current.height = windowSize.height
+    canvasRef.current.width = windowSize.width
+  }, [windowSize])
+
   const cometsRef = React.useRef([] as Comet[])
   const [additionalVelocityRef, stepAdditionalVelocity] = useLogisticValue()
 
   React.useLayoutEffect(() => {
     const canvas = canvasRef.current as HTMLCanvasElement
-
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext('2d')
 
     const onFrame = () => {
       const theme = themeRef.current
       const comets = cometsRef.current
       const numberCometsToGenerate = getNumberCometsToGenerate()
       for (let _ of Array(numberCometsToGenerate).keys()) {
-        const newComet = createComet()
+        const newComet = createComet(canvas.width)
         comets.push(newComet)
       }
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.fillStyle = theme.backgroundColor
       comets.forEach((comet, index) => {
         const length = getCometLength(comet, additionalVelocityRef.current)
-        if (comet.y - length > window.innerHeight) {
+        if (comet.y - length > canvas.height) {
           comets.splice(index, 1)
         }
         const linearGradient = ctx.createLinearGradient(
@@ -132,18 +143,9 @@ const Background = () => {
     window.requestAnimationFrame(onFrame)
   }, [])
 
-  const [height, setHeight] = React.useState<number>(0)
-  const [width, setWidth] = React.useState<number>(0)
-
-  React.useLayoutEffect(() => {
-    setHeight(window.innerHeight)
-    setWidth(window.innerWidth)
-  }, [])
   return (
     <canvas
       ref={canvasRef}
-      height={height}
-      width={width}
       css={css`
         position: absolute;
         left: 0;
@@ -153,6 +155,6 @@ const Background = () => {
       `}
     />
   )
-}
+})
 
 export default Background

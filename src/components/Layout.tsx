@@ -43,6 +43,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
           <div
             css={css`
               height: 100vh;
+              width: 100vw;
               display: flex;
               flex-direction: column;
               color: ${theme.primaryColor};
@@ -59,7 +60,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
               css={css`
                 margin: 0 auto;
                 max-width: 1200px;
-                padding: 1rem;
+                padding: ${theme.spacing.large};
                 flex-grow: 1;
                 overflow-y: auto;
               `}

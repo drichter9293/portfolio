@@ -24,7 +24,7 @@ const themeModes = {
     secondaryColor: '#135589',
     //backgroundColor: "#F2F4F4", //"#E5E7E9",
     //backgroundColor: "#EDFAFD",
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
   },
 }
 

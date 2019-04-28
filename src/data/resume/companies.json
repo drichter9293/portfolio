@@ -2,6 +2,7 @@
   "companies": [
     {
       "name": "athenahealth",
+      "href": "https://www.athenahealth.com/",
       "logoLight": "../../images/athenahealth-light.png",
       "logoDark": "../../images/athenahealth-dark.png",
       "positions": [
@@ -62,6 +63,7 @@
     },
     {
       "name": "TradeStation",
+      "href": "https://www.tradestation.com/",
       "logoLight": "../../images/tradestation-light.png",
       "logoDark": "../../images/tradestation-dark.png",
       "positions": [
@@ -83,6 +85,7 @@
     },
     {
       "name": "Ultimate Software",
+      "href": "https://www.ultimatesoftware.com/",
       "logoLight": "../../images/ultimate-software-light.png",
       "logoDark": "../../images/ultimate-software-dark.png",
       "positions": [

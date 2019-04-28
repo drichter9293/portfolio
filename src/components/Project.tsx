@@ -1,53 +1,64 @@
-import React from 'react';
+import React from 'react'
 
-import { css } from '@emotion/core';
+import styled from '@emotion/styled'
 
-import { useTheme } from '../utils/theme';
+interface Tool {
+  name: string
+  icon: string
+}
 
 interface Props {
   name: string
   image: string
-  libraryIcons: string[]
+  href?: string
+  tools: Tool[]
 }
+
+const ProjectWrapper = styled.div`
+  margin: ${props => props.theme.spacing.large};
+  background-color: ${props => props.theme.cardBackgroundColor};
+  box-shadow: 0 0px 8px ${props => props.theme.fontColor}33;
+`
+
+const ProjectHeader = styled.h1`
+  font-size: ${props => props.theme.fontSize.xxlarge};
+  text-align: center;
+  color: ${props => props.theme.cardFontColor};
+  padding: ${props => props.theme.spacing.large};
+  margin: 0;
+`
+
+const ProjectImage = styled.img`
+  margin: 0;
+`
+
+const ProjectFooter = styled.div`
+  text-align: center;
+  img {
+    margin: ${props => props.theme.spacing.medium}
+      ${props => props.theme.spacing.large};
+  }
+`
 
 const Project: React.FunctionComponent<Props> = ({
   name,
   image,
-  libraryIcons,
+  href,
+  tools,
 }) => {
-  const theme = useTheme()
+  console.log(tools)
   return (
-    <div
-      css={css`
-        margin: 1em;
-        border: 0.25em solid ${theme.secondaryColor};
-        border-radius: 0.5em;
-        padding: 0.5em;
-        background-color: ${theme.secondaryColor};
-      `}
-    >
-      <h1
-        css={css`
-          text-align: center;
-          color: ${theme.backgroundColor};
-        `}
-      >
-        {name}
-      </h1>
-      <img src={image} width="500em" />
-      <div
-        css={css`
-          text-align: center;
-          img:not(:last-child) {
-            padding-right: 2em;
-          }
-        `}
-      >
-        {libraryIcons.map((icon, index) => (
-          <img key={index} src={icon} height="50em" />
+    <ProjectWrapper>
+      <ProjectHeader>{name}</ProjectHeader>
+      <a href={href} title={name}>
+        <ProjectImage src={image} width="500em" />
+      </a>
+      <ProjectFooter>
+        {tools.map((tool, index) => (
+          <img key={index} src={tool.icon} height="40em" title={tool.name} />
         ))}
-      </div>
-    </div>
+      </ProjectFooter>
+    </ProjectWrapper>
   )
 }
 

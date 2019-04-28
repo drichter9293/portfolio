@@ -5,6 +5,8 @@ const themeModes = {
     primaryColor: '#BDBDBD',
     secondaryColor: '#EEEEEE',
     backgroundColor: '#000000',
+    cardBackgroundColor: '#333333',
+    cardFontColor: '#BDBDBD',
     fontColor: '#FFFFFF',
   },
   // [DARK_MODE]: {
@@ -26,6 +28,8 @@ const themeModes = {
     //backgroundColor: "#F2F4F4", //"#E5E7E9",
     //backgroundColor: "#EDFAFD",
     backgroundColor: '#FFFFFF',
+    cardBackgroundColor: '#135589',
+    cardFontColor: '#FFFFFF',
     fontColor: '#000000',
   },
 }
@@ -36,6 +40,7 @@ const baseTheme = {
     medium: '16px',
     large: '20px',
     xlarge: '24px',
+    xxlarge: '32px',
   },
   spacing: {
     small: '4px',

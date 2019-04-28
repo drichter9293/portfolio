@@ -23,6 +23,7 @@ export interface IPosition {
 
 export interface Company {
   name: string
+  href: string
   logoLight?: any
   logoDark?: any
   positions: [IPosition]
@@ -126,13 +127,15 @@ const Company: React.FunctionComponent<Props> = ({ theme, company }) => {
       <CompanyDetails>
         {logo ? (
           <CompanyName>
-            <Img
-              imgStyle={{
-                objectFit: 'contain',
-                maxHeight: theme.icon.height,
-              }}
-              fluid={logo.childImageSharp.fluid}
-            />
+            <a href={company.href} title={company.name}>
+              <Img
+                imgStyle={{
+                  objectFit: 'contain',
+                  maxHeight: theme.icon.height,
+                }}
+                fluid={logo.childImageSharp.fluid}
+              />
+            </a>
           </CompanyName>
         ) : (
           <CompanyName>{company.name}</CompanyName>

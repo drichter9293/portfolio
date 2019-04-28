@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/core'
 
-import Layout from '../components/Layout';
-import Project from '../components/Project';
-import emotionIcon from '../images/emotion.png';
-import gatsbyIcon from '../images/gatsby-icon.png';
-import herokuIcon from '../images/heroku.png';
-import marioKart from '../images/mario-kart.png';
-import materialUiIcon from '../images/material-ui.svg';
-import nodeIcon from '../images/node.png';
-import portfolio from '../images/portfolio.png';
-import reactIcon from '../images/react.png';
-import topGamer from '../images/top-gamer.png';
-import typescriptIcon from '../images/typescript.png';
+import Layout from '../components/Layout'
+import Project from '../components/Project'
+import emotionIcon from '../images/emotion.png'
+import gatsbyIcon from '../images/gatsby-icon.png'
+import herokuIcon from '../images/heroku.png'
+import marioKart from '../images/mario-kart.png'
+import materialUiIcon from '../images/material-ui.svg'
+import nodeIcon from '../images/node.png'
+import portfolio from '../images/portfolio.png'
+import reactIcon from '../images/react.png'
+import topGamer from '../images/top-gamer.png'
+import typescriptIcon from '../images/typescript.png'
 
 const Projects: React.FunctionComponent = () => {
   return (
@@ -28,23 +28,74 @@ const Projects: React.FunctionComponent = () => {
         <Project
           name="Portfolio"
           image={portfolio}
-          libraryIcons={[reactIcon, typescriptIcon, emotionIcon, gatsbyIcon]}
+          href="https://danielrichter.dev"
+          tools={[
+            {
+              name: 'React',
+              icon: reactIcon,
+            },
+            {
+              name: 'Typescript',
+              icon: typescriptIcon,
+            },
+            {
+              name: 'Emotion',
+              icon: emotionIcon,
+            },
+            {
+              name: 'Gatsby',
+              icon: gatsbyIcon,
+            },
+          ]}
         />
         <Project
           name="Top Gamer"
           image={topGamer}
-          libraryIcons={[
-            reactIcon,
-            typescriptIcon,
-            materialUiIcon,
-            nodeIcon,
-            herokuIcon,
+          href="https://top-gamer.herokuapp.com"
+          tools={[
+            {
+              name: 'React',
+              icon: reactIcon,
+            },
+            {
+              name: 'Typescript',
+              icon: typescriptIcon,
+            },
+            {
+              name: 'Material-UI',
+              icon: materialUiIcon,
+            },
+            {
+              name: 'Node',
+              icon: nodeIcon,
+            },
+            {
+              name: 'Heroku',
+              icon: herokuIcon,
+            },
           ]}
         />
         <Project
           name="Mario Kart"
           image={marioKart}
-          libraryIcons={[reactIcon, typescriptIcon, materialUiIcon, gatsbyIcon]}
+          tools={[
+            {
+              name: 'React',
+              icon: reactIcon,
+            },
+            {
+              name: 'Typescript',
+              icon: typescriptIcon,
+            },
+            {
+              name: 'Material-UI',
+              icon: materialUiIcon,
+            },
+            {
+              name: 'Gatsby',
+              icon: gatsbyIcon,
+            },
+          ]}
         />
       </div>
     </Layout>

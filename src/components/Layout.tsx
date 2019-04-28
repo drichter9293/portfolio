@@ -6,8 +6,6 @@
  */
 import React from 'react'
 
-import './Layout.css'
-
 import { ThemeProvider } from 'emotion-theming'
 import { graphql, StaticQuery } from 'gatsby'
 

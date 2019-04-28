@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby'
 
-import Company from './Company';
+import Company from './Company'
 
 const Experience: React.FunctionComponent = () => {
   const data = useStaticQuery(graphql`
@@ -10,6 +10,7 @@ const Experience: React.FunctionComponent = () => {
       resumeJson {
         companies {
           name
+          href
           logoLight {
             childImageSharp {
               fluid(maxHeight: 50) {

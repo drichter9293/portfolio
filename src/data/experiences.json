@@ -1,0 +1,110 @@
+[
+  {
+    "displayInResume": true,
+    "name": "athenahealth",
+    "href": "https://www.athenahealth.com/",
+    "logoLight": "../images/athenahealth-light.png",
+    "logoDark": "../images/athenahealth-dark.png",
+    "positions": [
+      {
+        "title": "Senior Software Engineer",
+        "startDate": "2018-02-01"
+      },
+      {
+        "title": "Software Engineer",
+        "startDate": "2015-09-01",
+        "endDate": "2018-02-01"
+      }
+    ],
+    "projects": [
+      {
+        "name": "Frontend Deployment",
+        "description": "Design deployment strategy for react applications",
+        "details": [
+          "Build webpack plugin to exclude whitelisted dependencies from bundle, leading to a 50% reduction in static content size",
+          "Build loader that includes bundle and shared dependencies on webpage"
+        ]
+      },
+      {
+        "name": "Virence Migration",
+        "description": "Transition acquisition's frontend to React",
+        "detailedDescription": "",
+        "details": [
+          "Introduced several teams of AngularJS developers to React",
+          "Architected solutions to maintain compatability with existing backend"
+        ]
+      },
+      {
+        "name": "Nursing Flowsheets",
+        "description": "Build workflow for nurses to document patient assessments",
+        "details": [
+          "Spearheaded the development of the company's first React application",
+          "Reduced load and render time of data grid by upwards of 90% through virtualization and an upgraded API",
+          "Lowered user documentation time by ~60% by condensing workflows"
+        ]
+      },
+      {
+        "name": "Forge Design System",
+        "description": "Build React component library for our internal design system",
+        "details": [
+          "Implemented generalized table and selection list components",
+          "Pioneered process for decentralized teams to contribute to the library"
+        ]
+      },
+      {
+        "name": "Messaging Operations",
+        "description": "Maintained message queuing system for contacting patients",
+        "details": [
+          "Integrated a new messaging service provider to decrease cost per message from $0.10 to $0.03, saving ~$4 million per year",
+          "After enhancing monitoring with Grafana, identified bottlenecks and increased message completion rate from 99.3% to 99.97%"
+        ]
+      }
+    ]
+  },
+  {
+    "displayInResume": false,
+    "name": "TradeStation",
+    "href": "https://www.tradestation.com/",
+    "logoLight": "../images/tradestation-light.png",
+    "logoDark": "../images/tradestation-dark.png",
+    "positions": [
+      {
+        "title": "Intern",
+        "startDate": "2015-06-01",
+        "endDate": "2015-08-01"
+      }
+    ],
+    "projects": [
+      {
+        "name": "IdeaLab",
+        "description": "Modeled customer life cycles to recognize valuable clients",
+        "details": [
+          "Segmented the customer base through statistical analysis and machine learning using R"
+        ]
+      }
+    ]
+  },
+  {
+    "displayInResume": false,
+    "name": "Ultimate Software",
+    "href": "https://www.ultimatesoftware.com/",
+    "logoLight": "../images/ultimate-software-light.png",
+    "logoDark": "../images/ultimate-software-dark.png",
+    "positions": [
+      {
+        "title": "Intern",
+        "startDate": "2014-05-01",
+        "endDate": "2014-08-01"
+      }
+    ],
+    "projects": [
+      {
+        "name": "VTeam",
+        "description": "Designed and implemented a .NET application to view project dependencies using C#",
+        "details": [
+          "Computed module integration complexity using design predicates and reflection"
+        ]
+      }
+    ]
+  }
+]

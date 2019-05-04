@@ -1,49 +1,47 @@
 import React from 'react'
 
 import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 import logo from '../images/favicon.svg'
 
+const WrapperDiv = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.theme.primaryColor};
+`
+
+const Name = styled.h1`
+  font-size: 80px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  @media (max-width: 800px) {
+    font-size: 40px;
+  }
+`
+
+const Title = styled.h2`
+  font-size: 40px;
+  font-weight: 200;
+  font-style: italic;
+  @media (max-width: 800px) {
+    font-size: 20px;
+  }
+`
+
 const IndexPage: React.FunctionComponent = () => (
   <Layout>
     <SEO title="Home" keywords={[`daniel`, `richter`, `portfolio`]} />
-    <div
-      css={css`
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      `}
-    >
+    <WrapperDiv>
       <img src={logo} css={css``} />
-      <h1
-        css={css`
-          font-size: 80px;
-          font-weight: 300;
-          margin-bottom: 20px;
-          @media (max-width: 800px) {
-            font-size: 40px;
-          }
-        `}
-      >
-        DANIEL RICHTER
-      </h1>
-      <h2
-        css={css`
-          font-size: 40px;
-          font-weight: 200;
-          font-style: italic;
-          @media (max-width: 800px) {
-            font-size: 20px;
-          }
-        `}
-      >
-        SOFTWARE ENGINEER
-      </h2>
-    </div>
+      <Name>DANIEL RICHTER</Name>
+      <Title>SOFTWARE ENGINEER</Title>
+    </WrapperDiv>
   </Layout>
 )
 

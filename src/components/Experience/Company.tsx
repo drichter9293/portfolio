@@ -22,6 +22,7 @@ export interface IPosition {
 }
 
 export interface Company {
+  displayInResume: boolean
   name: string
   href: string
   logoLight?: any
@@ -144,7 +145,7 @@ const Company: React.FunctionComponent<Props> = ({ theme, company }) => {
           {company.positions.map(position => (
             <Position key={position.title}>
               <PositionTitle>{position.title}</PositionTitle>
-              <PositionDates>{`${position.startDate} - ${position.endDate ||
+              <PositionDates>{`${position.startDate} — ${position.endDate ||
                 'Present'}`}</PositionDates>
             </Position>
           ))}

@@ -1,0 +1,19 @@
+<svg id="color-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" width="280" height="320" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <style>
+      .hex {
+        stroke-width: 20px;
+        stroke: url(#grad);
+      }
+      .text {
+        font: bold 150px sans-serif
+      }
+  </style>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="20%" x2="100%" y2="80%">
+      <stop offset="0%" style="stop-color:#3DDAD7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3DDAD7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <polygon class="hex" stroke="url(#grad)" points="140,10 10,85 10,235 140,310 270,235 270,85" fill="transparent"/>
+  <text fill="url(#grad)" x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" class="text">DR</text>
+</svg>

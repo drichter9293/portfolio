@@ -44,7 +44,6 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
               width: 100vw;
               display: flex;
               flex-direction: column;
-              color: ${theme.primaryColor};
             `}
           >
             <div

@@ -46,7 +46,6 @@ const Project: React.FunctionComponent<Props> = ({
   href,
   tools,
 }) => {
-  console.log(tools)
   return (
     <ProjectWrapper>
       <ProjectHeader>{name}</ProjectHeader>

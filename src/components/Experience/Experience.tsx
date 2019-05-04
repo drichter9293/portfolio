@@ -7,9 +7,10 @@ import Company from './Company'
 const Experience: React.FunctionComponent = () => {
   const data = useStaticQuery(graphql`
     query {
-      resumeJson {
-        companies {
+      allExperiencesJson {
+        nodes {
           name
+          displayInResume
           href
           logoLight {
             childImageSharp {
@@ -39,12 +40,15 @@ const Experience: React.FunctionComponent = () => {
       }
     }
   `)
-  const companies = data.resumeJson.companies
+
+  const experiences = data.allExperiencesJson.nodes
   return (
     <div>
-      {companies.map(company => (
-        <Company key={company.name} company={company} />
-      ))}
+      {experiences
+        .filter(experience => experience.displayInResume)
+        .map(experience => (
+          <Company key={experience.name} company={experience} />
+        ))}
     </div>
   )
 }

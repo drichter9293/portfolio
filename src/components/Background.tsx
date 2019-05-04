@@ -79,12 +79,6 @@ interface Props {
 }
 
 const Background: React.FunctionComponent<Props> = withTheme(({ theme }) => {
-  const darkMode = useDarkMode()
-  const darkModeRef = React.useRef(darkMode.value)
-  if (darkModeRef.current !== darkMode.value) {
-    darkModeRef.current = darkMode.value
-  }
-
   const themeRef = React.useRef(theme)
   if (themeRef.current !== theme) {
     themeRef.current = theme
@@ -113,8 +107,9 @@ const Background: React.FunctionComponent<Props> = withTheme(({ theme }) => {
         const newComet = createComet(canvas.width)
         comets.push(newComet)
       }
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.fillStyle = theme.backgroundColor
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
       comets.forEach((comet, index) => {
         const length = getCometLength(comet, additionalVelocityRef.current)
         if (comet.y - length > canvas.height) {
@@ -151,7 +146,6 @@ const Background: React.FunctionComponent<Props> = withTheme(({ theme }) => {
         left: 0;
         top: 0;
         z-index: -1;
-        background-color: ${theme.backgroundColor};
       `}
     />
   )

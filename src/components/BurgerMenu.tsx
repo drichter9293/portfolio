@@ -1,16 +1,15 @@
 import React from 'react'
 
 import { withTheme } from 'emotion-theming'
-import { Link } from 'gatsby'
+import { Link, withPrefix } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 
 import { css } from '@emotion/core'
-import styled from '@emotion/styled'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const MenuItem = styled(Link)`
-  font-size: ${props => props.theme.fontSize.xlarge};
+const menuItemCss = theme => css`
+  font-size: ${theme.fontSize.xlarge};
   text-decoration: none;
   :focus {
     outline: none;
@@ -49,7 +48,9 @@ const BurgerMenu: React.FunctionComponent<Props> = withTheme(
         padding: '55px 0',
         fontSize: '1.15em',
       },
-      bmBurgerBars: {},
+      bmBurgerBars: {
+        color: theme.primaryColor,
+      },
       bmCross: {},
       bmCrossButton: {
         height: '32px',
@@ -76,19 +77,30 @@ const BurgerMenu: React.FunctionComponent<Props> = withTheme(
         }
         styles={styles}
       >
-        {menuItems.map(menuItem => (
-          <MenuItem
-            key={menuItem.title}
-            theme={theme}
-            to={menuItem.to}
-            activeStyle={{
-              backgroundColor: theme.primaryColor,
-              color: theme.backgroundColor,
-            }}
-          >
-            {menuItem.title}
-          </MenuItem>
-        ))}
+        {menuItems.map(menuItem =>
+          menuItem.staticAsset ? (
+            <a
+              key={menuItem.title}
+              css={menuItemCss}
+              href={withPrefix(menuItem.to)}
+              target="blank"
+            >
+              {menuItem.title}
+            </a>
+          ) : (
+            <Link
+              key={menuItem.title}
+              to={menuItem.to}
+              activeStyle={{
+                backgroundColor: theme.primaryColor,
+                color: theme.backgroundColor,
+              }}
+              css={menuItemCss}
+            >
+              {menuItem.title}
+            </Link>
+          )
+        )}
       </Menu>
     )
   }

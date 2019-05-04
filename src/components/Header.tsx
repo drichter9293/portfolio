@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { Link } from 'gatsby'
 import useMedia from 'react-use/lib/useMedia'
 
 import { css } from '@emotion/core'
@@ -41,6 +40,11 @@ const Header: React.FunctionComponent = () => {
     {
       title: 'Experience',
       to: '/experience/',
+    },
+    {
+      staticAsset: true,
+      title: 'Resume',
+      to: '/daniel-richter-resume.pdf',
     },
   ]
 

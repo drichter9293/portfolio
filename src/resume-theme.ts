@@ -4,7 +4,7 @@ import getTheme from './theme'
 const themeOverrides = {
   fontSize: {
     small: '9px',
-    medium: '12px',
+    medium: '13px',
     large: '15px',
     xlarge: '18px',
     xxlarge: '36px',

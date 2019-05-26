@@ -44,11 +44,9 @@ const Experience: React.FunctionComponent = () => {
   const experiences = data.allExperiencesJson.nodes
   return (
     <div>
-      {experiences
-        .filter(experience => experience.displayInResume)
-        .map(experience => (
-          <Company key={experience.name} company={experience} />
-        ))}
+      {experiences.map(experience => (
+        <Company key={experience.name} company={experience} />
+      ))}
     </div>
   )
 }

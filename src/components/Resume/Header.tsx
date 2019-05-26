@@ -1,8 +1,8 @@
 import React from 'react'
 
 import styled from '@emotion/styled'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faPhone, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import logo from '../../images/logo-light.svg'
@@ -57,6 +57,8 @@ const ContactItemWrapper = styled.div`
 `
 
 const ContactItemIcon = styled.div`
+  width: 40px;
+  text-align: center;
   padding-right: ${props => props.theme.spacing.medium};
 `
 
@@ -84,8 +86,8 @@ const Header = () => {
         <Title>Software Engineer</Title>
       </NameTitleWrapper>
       <ContactInfo>
+        <ContactItem icon={faUser} text="danielrichter.dev" />
         <ContactItem icon={faGithub} text="github.com/drichter9293" />
-        <ContactItem icon={faLinkedin} text="linkedin.com/in/drichter9293" />
         <ContactItem icon={faEnvelope} text="drichter9293@gmail.com" />
         <ContactItem icon={faPhone} text="(954) 812-0112" />
       </ContactInfo>

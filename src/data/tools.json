@@ -22,7 +22,7 @@
   {
     "key": "material-ui",
     "name": "Material UI",
-    "icon": "../images/material-ui.png"
+    "icon": "../images/material-ui.svg"
   },
   {
     "key": "node",

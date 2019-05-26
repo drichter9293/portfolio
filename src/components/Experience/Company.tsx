@@ -67,10 +67,12 @@ const Position = styled.div`
 `
 
 const PositionTitle = styled.div`
+  color: ${props => props.theme.primaryColor};
   font-size: ${props => props.theme.fontSize.large};
 `
 
 const PositionDates = styled.div`
+  color: ${props => props.theme.secondaryColor};
   padding-left: ${props => props.theme.spacing.medium};
   font-size: ${props => props.theme.fontSize.medium};
   font-style: italic;
@@ -115,6 +117,7 @@ const ProjectDescription = styled.div`
 `
 
 const ProjectDetail = styled.div`
+  color: ${props => props.theme.fontColor};
   font-size: ${props => props.theme.fontSize.medium};
   margin-left: ${props => props.theme.spacing.large};
   padding-bottom: ${props => props.theme.spacing.small};

@@ -19,15 +19,15 @@
     "projects": [
       {
         "name": "Frontend Deployment",
-        "description": "Design deployment strategy for react applications",
+        "description": "Designed deployment strategy for react applications",
         "details": [
-          "Build webpack plugin to exclude whitelisted dependencies from bundle, leading to a 50% reduction in static content size",
-          "Build loader that includes bundle and shared dependencies on webpage"
+          "Built webpack plugin to exclude whitelisted dependencies from bundle, leading to a 50% reduction in static content size",
+          "Built loader that includes bundle and shared dependencies on webpage"
         ]
       },
       {
         "name": "Virence Migration",
-        "description": "Transition acquisition's frontend to React",
+        "description": "Transitioned acquisition's frontend to React",
         "detailedDescription": "",
         "details": [
           "Introduced several teams of AngularJS developers to React",
@@ -36,7 +36,7 @@
       },
       {
         "name": "Nursing Flowsheets",
-        "description": "Build workflow for nurses to document patient assessments",
+        "description": "Built workflow for nurses to document patient assessments",
         "details": [
           "Spearheaded the development of the company's first React application",
           "Reduced load and render time of data grid by upwards of 90% through virtualization and an upgraded API",
@@ -45,7 +45,7 @@
       },
       {
         "name": "Forge Design System",
-        "description": "Build React component library for our internal design system",
+        "description": "Built React component library for our internal design system",
         "details": [
           "Implemented generalized table and selection list components",
           "Pioneered process for decentralized teams to contribute to the library"

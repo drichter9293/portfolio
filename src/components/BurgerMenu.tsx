@@ -8,6 +8,8 @@ import { css } from '@emotion/core'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+const ICON_SIZE = '2x'
+
 const menuItemCss = theme => css`
   font-size: ${theme.fontSize.xlarge};
   text-decoration: none;
@@ -27,18 +29,13 @@ interface Props {
   theme: any
 }
 
-const OPACITY = '33'
+const OVERLAY_OPACITY = '99'
 
 const BurgerMenu: React.FunctionComponent<Props> = withTheme(
   ({ menuItems, isMenuOpen, theme }) => {
     const styles = {
-      bmBurgerButton: {
-        width: '36px',
-        height: '30px',
-      },
-      bmBurgerBarsHover: {
-        background: theme.primaryColor,
-      },
+      bmBurgerButton: {},
+      bmBurgerBarsHover: {},
       bmMenuWrap: {
         position: 'fixed',
         width: '230px',
@@ -48,9 +45,7 @@ const BurgerMenu: React.FunctionComponent<Props> = withTheme(
         padding: '55px 0',
         fontSize: '1.15em',
       },
-      bmBurgerBars: {
-        color: theme.primaryColor,
-      },
+      bmBurgerBars: {},
       bmCross: {},
       bmCrossButton: {
         height: '32px',
@@ -65,15 +60,18 @@ const BurgerMenu: React.FunctionComponent<Props> = withTheme(
       bmItemList: {},
       bmMorphShape: {},
       bmOverlay: {
-        background: `${theme.primaryColor}${OPACITY}`,
+        background: `#000000${OVERLAY_OPACITY}`,
       },
     }
     return (
       <Menu
-        customBurgerIcon={false}
         isOpen={isMenuOpen}
         customCrossIcon={
-          <FontAwesomeIcon icon={faTimes} color={theme.primaryColor} />
+          <FontAwesomeIcon
+            icon={faTimes}
+            color={theme.primaryColor}
+            size={ICON_SIZE}
+          />
         }
         styles={styles}
       >

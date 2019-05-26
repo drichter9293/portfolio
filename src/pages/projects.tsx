@@ -8,7 +8,7 @@ import emotionIcon from '../images/emotion.png'
 import gatsbyIcon from '../images/gatsby.png'
 import herokuIcon from '../images/heroku.png'
 import marioKart from '../images/mario-kart.png'
-import materialUiIcon from '../images/material-ui.png'
+import materialUiIcon from '../images/material-ui.svg'
 import nodeIcon from '../images/node.png'
 import portfolio from '../images/portfolio.png'
 import reactIcon from '../images/react.png'
@@ -78,6 +78,7 @@ const Projects: React.FunctionComponent = () => {
         <Project
           name="Mario Kart"
           image={marioKart}
+          href="https://mario-kart-optimizer.netlify.com/"
           tools={[
             {
               name: 'React',

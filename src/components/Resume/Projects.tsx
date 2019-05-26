@@ -1,11 +1,9 @@
 import React from 'react'
 
 import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
 
 import styled from '@emotion/styled'
 import { faChevronRight, faLaptopCode } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {
   ElementContent,
@@ -50,11 +48,6 @@ const Tools = styled.div`
   display: flex;
 `
 
-const ElementImage = styled.div`
-  width: 35px;
-  text-align: center;
-`
-
 const FlexGrowDiv = styled.div`
   flex-grow: 1;
 `
@@ -62,10 +55,6 @@ const FlexGrowDiv = styled.div`
 const Projects: React.FunctionComponent = () => {
   const data = useData()
   const projects = data.allProjectsJson.nodes
-  const toolData = data.allToolsJson.nodes.reduce((reduction, tool) => {
-    reduction[tool.key] = tool
-    return reduction
-  }, {})
 
   return (
     <Section title="Projects" icon={faLaptopCode}>
@@ -77,11 +66,6 @@ const Projects: React.FunctionComponent = () => {
                 <Tools>
                   <IconTitle title={project.name} icon={faChevronRight} />
                   <FlexGrowDiv />
-                  {/* {project.tools.map(toolKey => (
-                  <ElementImage key={toolKey}>
-                    <Img fixed={toolData[toolKey].icon.childImageSharp.fixed} />
-                  </ElementImage>
-                ))} */}
                 </Tools>
               </ItemTitle>
               <ItemDescription>{project.description}</ItemDescription>

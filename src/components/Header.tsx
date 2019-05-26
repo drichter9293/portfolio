@@ -20,6 +20,10 @@ const HeaderWrapper = styled.header`
   padding: 10px 14px;
 `
 
+const BurgerMenuWrapper = styled.div`
+  color: ${props => props.theme.primaryColor};
+`
+
 const Header: React.FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   let [isWide, setIsWide] = React.useState<boolean | undefined>(undefined)
@@ -54,9 +58,9 @@ const Header: React.FunctionComponent = () => {
         <Tabs menuItems={menuItems} />
       ) : (
         <>
-          <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <BurgerMenuWrapper onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <FontAwesomeIcon icon={faBars} size={ICON_SIZE} />
-          </div>
+          </BurgerMenuWrapper>
           <div
             css={css`
               position: absolute;

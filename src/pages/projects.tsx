@@ -1,21 +1,51 @@
 import React from 'react'
 
+import { graphql, useStaticQuery } from 'gatsby'
+
 import { css } from '@emotion/core'
 
 import Layout from '../components/Layout'
 import Project from '../components/Project'
-import emotionIcon from '../images/emotion.png'
-import gatsbyIcon from '../images/gatsby.png'
-import herokuIcon from '../images/heroku.png'
-import marioKart from '../images/mario-kart.png'
-import materialUiIcon from '../images/material-ui.svg'
-import nodeIcon from '../images/node.png'
-import portfolio from '../images/portfolio.png'
-import reactIcon from '../images/react.png'
-import topGamer from '../images/top-gamer.png'
-import typescriptIcon from '../images/typescript.png'
+
+const getData = () =>
+  useStaticQuery(graphql`
+    query {
+      allProjectsJson {
+        nodes {
+          name
+          description
+          href
+          githubLink
+          tools
+          image {
+            childImageSharp {
+              fluid(maxWidth: 500) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      allFile(filter: { relativeDirectory: { eq: "tools" } }) {
+        nodes {
+          name
+          childImageSharp {
+            fixed(height: 40) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+  `)
 
 const Projects: React.FunctionComponent = () => {
+  const data = getData()
+  const projects = data.allProjectsJson.nodes
+  const toolImages = data.allFile.nodes.reduce((reduction, node) => {
+    reduction[node.name] = node
+    return reduction
+  }, {})
   return (
     <Layout>
       <div
@@ -25,7 +55,19 @@ const Projects: React.FunctionComponent = () => {
           justify-content: center;
         `}
       >
-        <Project
+        {projects.map(project => (
+          <Project
+            key={project.name}
+            name={project.name}
+            description={project.description}
+            href={project.href}
+            githubLink={project.githubLink}
+            image={project.image}
+            tools={project.tools}
+            toolImages={toolImages}
+          />
+        ))}
+        {/* <Project
           name="Portfolio"
           image={portfolio}
           href="https://danielrichter.dev"
@@ -97,7 +139,7 @@ const Projects: React.FunctionComponent = () => {
               icon: gatsbyIcon,
             },
           ]}
-        />
+        /> */}
       </div>
     </Layout>
   )

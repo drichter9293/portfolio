@@ -1,18 +1,10 @@
 import React from 'react'
 
 import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
 
-import styled from '@emotion/styled'
-import {
-  faBriefcase,
-  faChevronRight,
-  faSitemap,
-  faUsers,
-  faUserTag
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBriefcase, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
+import athenahealthLogo from '../../images/athenahealth-light.png'
 import {
   Element,
   ElementContent,
@@ -26,7 +18,6 @@ import {
   ItemDescription,
   ItemDetail,
   ItemHeader,
-  ItemTitle,
   Section
 } from './Section'
 
@@ -36,13 +27,6 @@ const getData = () =>
       allExperiencesJson(filter: { displayInResume: { eq: true } }) {
         nodes {
           name
-          logoLight {
-            childImageSharp {
-              fixed(width: 200) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
           positions {
             title
             startDate(formatString: "MMM YYYY")
@@ -84,22 +68,24 @@ interface Props {
   company: Company
 }
 
+const logoMap = {
+  athenahealth: athenahealthLogo,
+}
+
 const Company: React.FunctionComponent<Props> = ({ theme, company }) => {
   return (
     <Element>
       <ElementHeader>
         <ElementTitle>
-          <Img
+          <img
             title={company.name}
-            fixed={company.logoLight.childImageSharp.fixed}
+            src={logoMap[company.name]}
+            style={{ width: '200px' }}
           />
         </ElementTitle>
         {company.positions.map(position => (
           <ElementRole key={position.title}>
-            <ElementRoleTitle>
-              {/* <FontAwesomeIcon icon={faUserTag} size="lg" /> */}
-              {position.title}
-            </ElementRoleTitle>
+            <ElementRoleTitle>{position.title}</ElementRoleTitle>
             <ElementRoleDates>{`${position.startDate} — ${position.endDate ||
               'Present'}`}</ElementRoleDates>
           </ElementRole>

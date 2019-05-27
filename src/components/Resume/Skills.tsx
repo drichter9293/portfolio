@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { faChevronRight, faHiking } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faCogs } from '@fortawesome/free-solid-svg-icons'
 
 import {
   ElementContent,
@@ -14,7 +14,7 @@ import {
 
 const Skills: React.FC = () => {
   return (
-    <Section title="Skills" icon={faHiking}>
+    <Section title="Skills" icon={faCogs}>
       <ElementContent>
         <Item>
           <IconTitle title="Programming Languages" icon={faChevronRight} />

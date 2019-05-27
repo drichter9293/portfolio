@@ -1,14 +1,12 @@
 import React from 'react'
 
-import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
-
 import styled from '@emotion/styled'
 import {
   faChevronRight,
   faGraduationCap
 } from '@fortawesome/free-solid-svg-icons'
 
+import * as miamiLogo from '../../images/university-of-miami.png'
 import {
   Element,
   ElementContent,
@@ -18,7 +16,6 @@ import {
   ElementRoleTitle,
   ElementTitle,
   IconTitle,
-  ItemTitle,
   Section
 } from './Section'
 
@@ -36,28 +33,17 @@ const ItemValue = styled.div`
   color: ${props => props.theme.secondaryColor};
 `
 
-export const query = graphql`
-  query {
-    file(relativePath: { eq: "university-of-miami.png" }) {
-      childImageSharp {
-        fixed(height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`
-
 const Education: React.FunctionComponent = () => {
-  const data = useStaticQuery(query)
-  console.log(data)
-  const logo = data.file.childImageSharp.fixed
   return (
     <Section title="Education" icon={faGraduationCap}>
       <Element>
         <ElementHeader>
           <ElementTitle>
-            <Img title="University of Miami" fixed={logo} />
+            <img
+              title="University of Miami"
+              src={miamiLogo}
+              style={{ height: '40px' }}
+            />
           </ElementTitle>
           <ElementRole>
             <ElementRoleTitle>Bachelor of Science</ElementRoleTitle>

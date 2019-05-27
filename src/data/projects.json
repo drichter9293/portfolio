@@ -2,6 +2,8 @@
   {
     "name": "Portfolio Site",
     "href": "https://danielrichter.dev/",
+    "githubLink": "https://github.com/drichter9293/portfolio",
+    "image": "../images/portfolio.png",
     "description": "My personal portfolio site",
     "details": [
       "Built with React hooks, light and dark theme, and a responsive design",
@@ -12,6 +14,8 @@
   {
     "name": "Top Gamer",
     "href": "https://top-gamer.herokuapp.com/",
+    "githubLink": "https://github.com/drichter9293/top-gamer",
+    "image": "../images/top-gamer.png",
     "description": "An Elo inspired ranking system",
     "details": [
       "Leaderboard for free-for-all or team games",
@@ -21,7 +25,10 @@
   },
   {
     "name": "Mario Kart Optimizer",
-    "description": "Tool for finding optimal character and kart configurations",
+    "href": "https://mario-kart-optimizer.netlify.com/",
+    "githubLink": "https://github.com/drichter9293/mario-kart",
+    "image": "../images/mario-kart.png",
+    "description": "Tool for finding optimal stat configurations",
     "details": [
       "Finds the configuration that maximizes the sum of the selected stats",
       "Allows components (i.e. character) to be locked and other components to be optimized"

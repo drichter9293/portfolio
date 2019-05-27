@@ -52,7 +52,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm run build:resume && gatsby build",
     "build:resume": "npx ./scripts/build-resume-pdf.js",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",

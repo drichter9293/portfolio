@@ -19,10 +19,10 @@
     "projects": [
       {
         "name": "Frontend Deployment",
-        "description": "Designed deployment strategy for react applications",
+        "description": "Designed deployment strategy for React applications",
         "details": [
           "Built webpack plugin to exclude whitelisted dependencies from bundle, leading to a 50% reduction in static content size",
-          "Built loader that includes bundle and shared dependencies on webpage"
+          "Built loader that includes bundle and shared dependencies on existing workflow pages"
         ]
       },
       {
@@ -55,7 +55,7 @@
         "name": "Messaging Operations",
         "description": "Maintained message queuing system for contacting patients",
         "details": [
-          "Integrated a new messaging service provider to decrease cost per message from $0.10 to $0.03, saving ~$4 million per year",
+          "Integrated a messaging service provider to decrease cost per message from $0.10 to $0.03, saving ~$4 million per year",
           "After enhancing monitoring with Grafana, identified bottlenecks and increased message completion rate from 99.3% to 99.97%"
         ]
       }

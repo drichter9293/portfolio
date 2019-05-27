@@ -6,8 +6,8 @@
     "image": "../images/portfolio.png",
     "description": "My personal portfolio site",
     "details": [
-      "Built with React hooks, light and dark theme, and a responsive design",
-      "Generates PDF copy of resume using puppeteer to screenshot the site"
+      "Built with React and Typescript with a responsive design",
+      "Generates PDF copy of resume using puppeteer to screenshot a template page built in React"
     ],
     "tools": ["react", "typescript", "emotion", "gatsby"]
   },
@@ -19,7 +19,7 @@
     "description": "An Elo inspired ranking system",
     "details": [
       "Leaderboard for free-for-all or team games",
-      "Currently used for Monopoly Deal"
+      "Currently used for Monopoly Deal games among coworkers"
     ],
     "tools": ["react", "typescript", "material-ui", "node", "heroku"]
   },
@@ -30,8 +30,8 @@
     "image": "../images/mario-kart.png",
     "description": "Tool for finding optimal stat configurations",
     "details": [
-      "Finds the configuration that maximizes the sum of the selected stats",
-      "Allows components (i.e. character) to be locked and other components to be optimized"
+      "Determines configuration that maximizes the sum of the selected stats",
+      "Allows individual components (i.e. character) to be locked while others are optimized for"
     ],
     "tools": ["react", "typescript", "material-ui", "gatsby"]
   }

@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { withTheme } from 'emotion-theming'
 import useWindowSize from 'react-use/lib/useWindowSize'
-import useDarkMode from 'use-dark-mode'
 
 import { css } from '@emotion/core'
-
-import { useTheme } from '../utils/theme'
 
 const GENERATION_RATE = 0.1 // Number per frame
 

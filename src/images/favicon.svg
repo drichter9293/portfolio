@@ -1,4 +1,4 @@
-<svg id="color-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" width="280" height="320" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="color-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" width="280" height="320" viewBox="0 0 280 320" xmlns:xlink="http://www.w3.org/1999/xlink">
    <style>
       .hex {
         stroke-width: 20px;

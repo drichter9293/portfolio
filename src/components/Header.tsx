@@ -15,13 +15,10 @@ import Tabs from './Tabs'
 const ICON_SIZE = '2x'
 
 const HeaderWrapper = styled.header`
+  color: ${props => props.theme.primaryColor};
   display: flex;
   align-items: center;
   padding: 10px 14px;
-`
-
-const BurgerMenuWrapper = styled.div`
-  color: ${props => props.theme.primaryColor};
 `
 
 const Header: React.FunctionComponent = () => {
@@ -58,9 +55,9 @@ const Header: React.FunctionComponent = () => {
         <Tabs menuItems={menuItems} />
       ) : (
         <>
-          <BurgerMenuWrapper onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <FontAwesomeIcon icon={faBars} size={ICON_SIZE} />
-          </BurgerMenuWrapper>
+          </div>
           <div
             css={css`
               position: absolute;

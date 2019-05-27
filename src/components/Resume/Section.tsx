@@ -49,7 +49,6 @@ export const ElementHeader = styled.div`
 
 export const ElementTitle = styled.div`
   padding-bottom: ${props => props.theme.spacing.small};
-  display: inline;
   img {
     margin-bottom: 0;
   }

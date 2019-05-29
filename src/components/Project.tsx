@@ -98,15 +98,15 @@ const Project: React.FunctionComponent<Props> = ({
           <ProjectDescription>{description}</ProjectDescription>
         </ProjectTitle>
         <ProjectLinks>
-          <a href={href}>
+          <a title={name} href={href}>
             <FontAwesomeIcon size={ICON_SIZE} icon={faLink} />
           </a>
-          <a href={githubLink}>
+          <a title="source" href={githubLink}>
             <FontAwesomeIcon size={ICON_SIZE} icon={faGithub} />
           </a>
         </ProjectLinks>
       </ProjectHeader>
-      <ProjectImage href={href} title={name}>
+      <ProjectImage href={githubLink} title={name}>
         <Img fluid={image.childImageSharp.fluid} />
       </ProjectImage>
       <ProjectFooter>

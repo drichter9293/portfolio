@@ -10,6 +10,11 @@
     "icon": "../images/tools/typescript.png"
   },
   {
+    "key": "javascript",
+    "name": "Javascript",
+    "icon": "../images/tools/javascript.png"
+  },
+  {
     "key": "emotion",
     "name": "Emotion",
     "icon": "../images/tools/emotion.png"
@@ -33,5 +38,10 @@
     "key": "heroku",
     "name": "Heroku",
     "icon": "../images/tools/heroku.png"
+  },
+  {
+    "key": "postrges",
+    "name": "PostgreSQL",
+    "icon": "../images/tools/postgres.png"
   }
 ]

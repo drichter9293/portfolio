@@ -1,11 +1,21 @@
 import React from 'react'
 
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 
 import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
 import Layout from '../components/Layout'
 import Project from '../components/Project'
+import TranslucentBackground from '../components/TranslucentBackground'
+import { useTheme } from '../utils/theme'
+
+const Body = styled.div`
+  text-align: center;
+  color: ${props => props.theme.primaryColor};
+  font-size: ${props => props.theme.fontSize.large};
+  padding: 0 ${props => props.theme.spacing.medium};
+`
 
 const getData = () =>
   useStaticQuery(graphql`
@@ -39,15 +49,34 @@ const getData = () =>
     }
   `)
 
-const Projects: React.FunctionComponent = () => {
+const linkCss = theme => css`
+  color: ${theme.primaryColor};
+  &:hover {
+    color: ${theme.secondaryColor};
+  }
+`
+
+const ProjectsPage: React.FunctionComponent = () => {
   const data = getData()
   const projects = data.allProjectsJson.nodes
   const toolImages = data.allFile.nodes.reduce((reduction, node) => {
     reduction[node.name] = node
     return reduction
   }, {})
+  const theme = useTheme()
+
   return (
     <Layout>
+      <TranslucentBackground>
+        <Body>
+          These are just my personal projects. For professional experience,
+          please see the{' '}
+          <Link to="/work" css={linkCss}>
+            work
+          </Link>{' '}
+          page
+        </Body>
+      </TranslucentBackground>
       <div
         css={css`
           display: flex;
@@ -67,82 +96,9 @@ const Projects: React.FunctionComponent = () => {
             toolImages={toolImages}
           />
         ))}
-        {/* <Project
-          name="Portfolio"
-          image={portfolio}
-          href="https://danielrichter.dev"
-          tools={[
-            {
-              name: 'React',
-              icon: reactIcon,
-            },
-            {
-              name: 'Typescript',
-              icon: typescriptIcon,
-            },
-            {
-              name: 'Emotion',
-              icon: emotionIcon,
-            },
-            {
-              name: 'Gatsby',
-              icon: gatsbyIcon,
-            },
-          ]}
-        />
-        <Project
-          name="Top Gamer"
-          image={topGamer}
-          href="https://top-gamer.herokuapp.com"
-          tools={[
-            {
-              name: 'React',
-              icon: reactIcon,
-            },
-            {
-              name: 'Typescript',
-              icon: typescriptIcon,
-            },
-            {
-              name: 'Material-UI',
-              icon: materialUiIcon,
-            },
-            {
-              name: 'Node',
-              icon: nodeIcon,
-            },
-            {
-              name: 'Heroku',
-              icon: herokuIcon,
-            },
-          ]}
-        />
-        <Project
-          name="Mario Kart"
-          image={marioKart}
-          href="https://mario-kart-optimizer.netlify.com/"
-          tools={[
-            {
-              name: 'React',
-              icon: reactIcon,
-            },
-            {
-              name: 'Typescript',
-              icon: typescriptIcon,
-            },
-            {
-              name: 'Material-UI',
-              icon: materialUiIcon,
-            },
-            {
-              name: 'Gatsby',
-              icon: gatsbyIcon,
-            },
-          ]}
-        /> */}
       </div>
     </Layout>
   )
 }
 
-export default Projects
+export default ProjectsPage

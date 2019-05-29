@@ -4,10 +4,12 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-import React from 'react';
+import React from 'react'
 
-import { graphql, useStaticQuery } from 'gatsby';
-import Helmet from 'react-helmet';
+import { graphql, useStaticQuery } from 'gatsby'
+import Helmet from 'react-helmet'
+
+import image from '../images/portfolio.png'
 
 interface Props {
   description?: string
@@ -63,6 +65,18 @@ const SEO: React.FunctionComponent<Props> = ({
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: image,
+        },
+        {
+          property: `og:image:width`,
+          content: 3360,
+        },
+        {
+          property: `og:image:height`,
+          content: 1940,
         },
         {
           name: `twitter:card`,

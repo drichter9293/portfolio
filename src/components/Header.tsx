@@ -39,8 +39,8 @@ const Header: React.FunctionComponent = () => {
       to: '/projects/',
     },
     {
-      title: 'Experience',
-      to: '/experience/',
+      title: 'Work',
+      to: '/work/',
     },
     {
       staticAsset: true,

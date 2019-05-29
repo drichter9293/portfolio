@@ -1,6 +1,6 @@
 [
   {
-    "name": "Portfolio Site",
+    "name": "This Portfolio",
     "href": "https://danielrichter.dev/",
     "githubLink": "https://github.com/drichter9293/portfolio",
     "image": "../images/portfolio.png",
@@ -21,18 +21,25 @@
       "Leaderboard for free-for-all or team games",
       "Currently used for Monopoly Deal games among coworkers"
     ],
-    "tools": ["react", "typescript", "material-ui", "node", "heroku"]
+    "tools": [
+      "react",
+      "typescript",
+      "material-ui",
+      "node",
+      "heroku",
+      "postgres"
+    ]
   },
   {
     "name": "Mario Kart Optimizer",
     "href": "https://mario-kart-optimizer.netlify.com/",
-    "githubLink": "https://github.com/drichter9293/mario-kart",
+    "githubLink": "https://github.com/drichter9293/mario-kart-optimizer",
     "image": "../images/mario-kart.png",
     "description": "Tool for finding optimal stat configurations",
     "details": [
       "Determines configuration that maximizes the sum of the selected stats",
       "Allows individual components (i.e. character) to be locked while others are optimized for"
     ],
-    "tools": ["react", "typescript", "material-ui", "gatsby"]
+    "tools": ["react", "javascript", "material-ui", "gatsby"]
   }
 ]

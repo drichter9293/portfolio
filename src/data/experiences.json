@@ -55,6 +55,7 @@
         "name": "Messaging Operations",
         "description": "Maintained message queuing system for contacting patients",
         "details": [
+          "Sent over 2.5 million calls, emails, and SMS per day",
           "Integrated a messaging service provider to decrease cost per message from $0.10 to $0.03, saving ~$4 million per year",
           "After enhancing monitoring with Grafana, identified bottlenecks and increased message completion rate from 99.3% to 99.97%"
         ]

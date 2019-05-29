@@ -1,19 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import 'react-toggle/style.css';
+import 'react-toggle/style.css'
 
-import Toggle from 'react-toggle';
-import useDarkMode from 'use-dark-mode';
+import Toggle from 'react-toggle'
+import useDarkMode from 'use-dark-mode'
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/core'
 
-import moon from '../images/moon.png';
-import sun from '../images/sun.png';
-import { useThemeMode } from '../utils/theme';
+import moon from '../images/moon.png'
+import sun from '../images/sun.png'
 
 const DarkModeToggle = () => {
   const darkMode = useDarkMode()
-  const themeMode = useThemeMode()
 
   return (
     <div
@@ -33,10 +31,10 @@ const DarkModeToggle = () => {
         }
 
         .react-toggle .react-toggle-track {
-          background-color: ${theme[themeMode].primaryColor};
+          background-color: ${theme.primaryColor};
         }
         .react-toggle:hover .react-toggle-track {
-          background-color: ${theme[themeMode].secondaryColor};
+          background-color: ${theme.secondaryColor};
         }
       `}
     >
@@ -50,7 +48,7 @@ const DarkModeToggle = () => {
               width="16"
               height="16"
               role="presentation"
-              style={{ pointerEvents: "none" }}
+              style={{ pointerEvents: 'none' }}
             />
           ),
           unchecked: (
@@ -59,7 +57,7 @@ const DarkModeToggle = () => {
               width="16"
               height="16"
               role="presentation"
-              style={{ pointerEvents: "none" }}
+              style={{ pointerEvents: 'none' }}
             />
           ),
         }}

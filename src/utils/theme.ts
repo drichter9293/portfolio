@@ -1,7 +1,7 @@
-import useDarkMode from 'use-dark-mode';
+import useDarkMode from 'use-dark-mode'
 
-import { DARK_MODE, LIGHT_MODE } from '../constants';
-import getTheme from '../theme';
+import { DARK_MODE, LIGHT_MODE } from '../constants'
+import getTheme from '../theme'
 
 export const useThemeMode = () => {
   const darkMode = useDarkMode()
